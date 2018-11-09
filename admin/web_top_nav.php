@@ -21,7 +21,7 @@ background-color: #FAFAFA;
 	
 	$SQL=new SQL;
 	$result = $SQL->Query("select * from t_web_conn where T_URL='".GetCurrentWebHost()."'");
-	$nPruNum = mysql_numrows($result);
+	$nPruNum = mysqli_num_rows($result);
 	if ($nPruNum==0)
 	{
 		$web_url="";
@@ -29,7 +29,7 @@ background-color: #FAFAFA;
 	}
 	else
 	{
-		$row=mysql_fetch_array($result);
+		$row=mysqli_fetch_array($result);
 		$web_url=$row["T_URL"];
 		$web_subject=$row["T_WEB_NAME"];
 		$web_creat_time=$row["T_CREATE_TIME"];
@@ -63,9 +63,9 @@ function ShowText(nID)
           <?php
 	  include("../dbCfg.php");
 	  $nNewArrivalTotal=20;
-	  $result = mysql_query("select * from t_top_nav where T_URL='".GetCurrentWebHost()."' order by T_INDEX ASC, T_NAME",$allDateBase);
+	  $result = mysqli_query("select * from t_top_nav where T_URL='".GetCurrentWebHost()."' order by T_INDEX ASC, T_NAME",$allDateBase);
 	  $nPos=-1;
-      while($row=mysql_fetch_array($result))
+      while($row=mysqli_fetch_array($result))
 	  {
 	  	$nPos++;
 	  	

@@ -47,7 +47,7 @@ form input{
   $AD = new AD;
   $adType = $_GET["ADType"];
   $result = $AD->GetAdListByType($adType);
-  while($row=mysql_fetch_array($result))
+  while($row=mysqli_fetch_array($result))
   {
   ?>
   <tr>

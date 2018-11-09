@@ -11,7 +11,7 @@ $sSql = "select * from pru where T_ID='$pru_id'";
 
 $SQL = new SQL;
 $result_currect = $SQL->Query($sSql);
-$row=mysql_fetch_array($result_currect);
+$row=mysqli_fetch_array($result_currect);
 
 $pru_brand=$row["T_CHILD"];
 if (strlen($row["T_TEMP_SIZE"])>0)
@@ -43,7 +43,7 @@ $pru_size_danwei=$row["T_SIZE_DANWEI"];
 
 /*T_HOT+1*/
 include("dbCfg.php");
-mysql_query("update pru set T_HOT=T_HOT+1 where T_ID='".$_GET["T_ID"]."'",$allDateBase);
+mysqli_query("update pru set T_HOT=T_HOT+1 where T_ID='".$_GET["T_ID"]."'",$allDateBase);
 
 if ( $row["T_STYLE_MEN"]==2 )
 	$pru_style=" For women";
@@ -195,7 +195,7 @@ else
         	<?php
 			$SQL = new SQL;
             $resultTmp = $SQL->Query("select * from registercustomer  where T_ID='".$row["T_USER_ID"]."'");
-			$rowUser=mysql_fetch_array($resultTmp);
+			$rowUser=mysqli_fetch_array($resultTmp);
 			?>
             <li><span class="itemDetailText_Class">编号:</span><?php echo $row["T_ID"];?></li>
             <li><span class="itemDetailText_Class">作者:</span><?php echo $rowUser["T_CUSTOMER_NAME"];?></li>
@@ -226,8 +226,8 @@ else
 		/*customer's leaving message*/
 		include("dbCfg.php");
 		$sSql = "select * from customerleavemsg where T_PRU_ID='".$_GET["T_ID"]."' and T_URL='".GetCurrentWebHost()."' and T_ROLE=1 order by T_TIME ASC ";
-		$result_all_message = mysql_query($sSql,$allDateBase);
-		$nMessageTotal = mysql_numrows($result_all_message);
+		$result_all_message = mysqli_query($sSql,$allDateBase);
+		$nMessageTotal = mysqli_num_rows($result_all_message);
 		?>
 <div id="TabbedPanels4" class="TabbedPanels">
 	<ul class="TabbedPanelsTabGroup">
@@ -250,7 +250,7 @@ else
         <div class="TabbedPanelsContent">
           <?php
 		  $nJiOu=1;
-          while($row=mysql_fetch_array($result_all_message))
+          while($row=mysqli_fetch_array($result_all_message))
 		  {
 		  ?>
           <ul class="msgReplied<?php echo $nJiOu=($nJiOu+1)%2;?>">
@@ -277,8 +277,8 @@ else
 						continue;
 					include("dbCfg.php");
 					$sSql = "select * from customerleavemsg where T_INDEX='".$idListRepliedMsg[$i]."' and  T_URL='".GetCurrentWebHost()."'";
-					$result_currect = mysql_query($sSql,$allDateBase);
-					if ($row=mysql_fetch_array($result_currect))
+					$result_currect = mysqli_query($sSql,$allDateBase);
+					if ($row=mysqli_fetch_array($result_currect))
 					{
 					?>
                 <li class="aminMsg" style="width:100%; color:#999999"">

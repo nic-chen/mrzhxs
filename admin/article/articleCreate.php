@@ -32,7 +32,7 @@ $classID=$_GET["ID"];
 		<?php
 		$selected = "selected=\"selected\"";
 		$result = $artical->GetArticleModelList();
-		while($row=mysql_fetch_array($result))
+		while($row=mysqli_fetch_array($result))
 		{
 		?>
         <option value="<?php echo $row["T_ID"];?>" <?php if ($row["T_ID"]==$_GET["ID"]) echo $selected;?>><?php echo $row["T_MODELNAME"];?></option>

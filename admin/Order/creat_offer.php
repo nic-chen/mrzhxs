@@ -37,10 +37,10 @@ if (strlen($order_date)>0 && strlen($order_ser)>0)
 {
 	include(APPROOT."/dbCfg.php");
 	$sql="select * from OFFER_ALL_USER where CONCAT_WS('', T_DATE, T_SER)='".$order_date.$order_ser."';";
-	$result = mysql_query($sql,$allDateBase);
-	if (1==mysql_numrows($result))
+	$result = mysqli_query($sql,$allDateBase);
+	if (1==mysqli_num_rows($result))
 	{
-		$row=mysql_fetch_array($result);
+		$row=mysqli_fetch_array($result);
 		$name=$row["T_USER_NAME"];
 		$mail=$row["T_MAIL"];
 		$address=$row["T_CUS_ADDRESS"];

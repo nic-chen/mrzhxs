@@ -5,7 +5,7 @@
 				$current_page = 1;
 			$result = $Customer->GetCustomerList(($current_page-1)*$nItemEachPage, $nItemEachPage, $type);
 			$index = -1;
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				if ($index==-1)
 					$index = 0;

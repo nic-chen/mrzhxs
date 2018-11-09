@@ -93,7 +93,7 @@ function AdminSingIn()
 		
 	$result =$SQL->Query($sSql);
 
-	if ($row=mysql_fetch_array($result))
+	if ($row=mysqli_fetch_array($result))
 	{
 		$admin->SetAdminSignInfo($userName, $userPwd);
 		SuccessPhpErrorPage(ADMIN_LOGIN_SUCCESS, true, "indexx.php");
@@ -383,7 +383,7 @@ function AddSubDomain()
 	{
 		$sSql="select * from t_web_conn where T_URL='".$_POST["WEB_URL"]."';";
 		$result = $SQL->Query($sSql);
-		$nItemTotal = mysql_numrows($result);
+		$nItemTotal = mysqli_num_rows($result);
 		if ($nItemTotal==0)
 		{	
 			$sSql="insert INTO t_web_conn (T_URL) VALUES ('".$_POST["WEB_URL"]."');";

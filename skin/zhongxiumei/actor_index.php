@@ -65,18 +65,18 @@
 
                 $result = $SQL->Query($sSql." order by T_CREATE_TIME desc limit ".(($current_page-1)*$nItemEachPage).", $nItemEachPage");
 
-                $nTotal = mysql_num_rows($result);
+                $nTotal = mysqli_num_rows($result);
 
                 $index = 0;
 
-                while($row=mysql_fetch_array($result))
+                while($row=mysqli_fetch_array($result))
                 {
                     if (strlen($row["T_USER_ID"])==0)
                         continue;
 
 										$Customer = new Customer;
                     $resultActor = $Customer->GetCustomerByID($row["T_USER_ID"]);
-                    $actor = mysql_fetch_array($resultActor);
+                    $actor = mysqli_fetch_array($resultActor);
 
 										if ($actor["T_STATUS"]!=0 || date("Y-m-d", strtotime($actor["T_END_TIME"]))<date("Y-m-d"))
 					
@@ -96,7 +96,7 @@
 
 					$resultTmp = $SQL->Query("select count(*) as nTotal from pru where T_USER_ID='".$actor["T_ID"]."'");
 
-					$rowTmp = mysql_fetch_array($resultTmp);
+					$rowTmp = mysqli_fetch_array($resultTmp);
 
 					$pruTotal = $rowTmp["nTotal"];
 
@@ -142,7 +142,7 @@
 
 			$result = $SQL->Query($sSql);
 
-            $nTotal = mysql_num_rows($result);
+            $nTotal = mysqli_num_rows($result);
 
             $url="?p=actor&classs=".urlencode($class)."&area=".urlencode($area)."&name=".urlencode($name)."&type="."search"."&meixie_huiyuan=".urlencode($meixie_huiyuan)."&shuxie_huiyuan=".urlencode($shuxie_huiyuan)."&page="; 
 

@@ -29,7 +29,7 @@ $nCount = count($strItemList);
 			$strItemCoolieSI=substr($strItemList[$i], strlen($strIDItem[0])+1,strlen($strItemList[$i]));
 			$SQL = new SQL;
 			$result_currect = $SQL->Query("select * from pru where T_ID='".$strIDItem[0]."'");
-			$row=mysql_fetch_array($result_currect);
+			$row=mysqli_fetch_array($result_currect);
 			if (strlen($shizi)==0)
 				$shizi = $row["T_PRICE"];
 			else
@@ -38,7 +38,7 @@ $nCount = count($strItemList);
 			
 			$SQL = new SQL;
             $resultTmp = $SQL->Query("select * from registercustomer  where T_ID='".$row["T_USER_ID"]."'");
-			$rowUser=mysql_fetch_array($resultTmp);
+			$rowUser=mysqli_fetch_array($resultTmp);
 	?>
 		<li <?php if ($i == $nCount-1) echo "id='bottom'";?>><span class="picture"><a href="?p=ItemDetail&T_ID=<?php echo $row["T_ID"];?>"><img src="<?php echo GetItemPathInfo($row["T_ID"], $row["Version"])."head.jpg";?>"/></a></span><span class="actor"><?php echo $rowUser["T_CUSTOMER_NAME"];?></span><span class="size"><?php echo $row["T_SIZE"].SIZE_DANWEI;?></span><span class="ID"><a href="?p=ItemDetail&T_ID=<?php echo $row["T_ID"];?>"><?php echo $row["T_ID"];?></a></span><span class="price"><?php echo MONEY_DANWEI." "; echo $row["T_PRICE"]+0;?></span><span class="action"><a href="updateData.php?COM_ID=0002&ID=<?php echo $row["T_ID"];?>">删除</a></span></li>
 	<?php

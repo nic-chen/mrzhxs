@@ -28,7 +28,7 @@
   $sql = "select * from registercustomer where T_CUSTOMER_NAME like '%$keyWord%' or T_ADDRESS like '%$keyWord%' or T_PRIVINCE like '%$keyWord%' or T_MAIL like '%$keyWord%' or T_TEL_PHONE like '%$keyWord%' order by T_END_TIME  ";
   $SQL = new SQL;
   $result = $SQL->Query($sql);
-  while($row=mysql_fetch_array($result))
+  while($row=mysqli_fetch_array($result))
   {
   ?>
   <tr>

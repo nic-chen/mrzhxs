@@ -27,7 +27,7 @@ $sSql="select * from t_top_nav where T_URL='".GetCurrentWebHost()."' order by T_
 $SQL=new SQL;
 $navResult=$SQL->Query($sSql);
 $nIndex=0;
-while($row=mysql_fetch_array($navResult))
+while($row=mysqli_fetch_array($navResult))
 {
 	$strPtype="";
 	if ($row["T_TYPE"]=="cart")
@@ -70,7 +70,7 @@ while($row=mysql_fetch_array($navResult))
 </div>
 <?php
 $nIndex=-1;
-while($row=mysql_fetch_array($navResult))
+while($row=mysqli_fetch_array($navResult))
 {
 	$nIndex++;
 	$strPtype="";
@@ -144,7 +144,7 @@ $guanggaoweiResult = $AD->GetAdListByType("guanggaowei");
 			 $pics=$links=$texts="";
 			 $index = 0;
 			 $reslut = $AD->GetAdListByType("huandengpian_head");
-			 while($row=mysql_fetch_array($reslut))
+			 while($row=mysqli_fetch_array($reslut))
 			 {
 				if ($index == 0)
 				{
@@ -380,7 +380,7 @@ $guanggaoweiResult = $AD->GetAdListByType("guanggaowei");
 		<?php
 		$Customer = new Customer;
 		$result = $Customer->GetProvinceList();
-		while ($row=mysql_fetch_array($result))
+		while ($row=mysqli_fetch_array($result))
 		{
 		?>
 	    <option value="<?php echo $row["T_PRIVINCE"];?>" <?php if ($classTmp==$row["T_PRIVINCE"]) echo $selectedStr;?>><?php echo $row["T_PRIVINCE"];?></option>
@@ -463,7 +463,7 @@ else if ($p=="actor_all")
 <span class="bottomContactInfo">
 <?php 
 $nIndex=-1;
-while($row=mysql_fetch_array($navResult))
+while($row=mysqli_fetch_array($navResult))
 {
 	$strPtype="";
 	if ($row["T_TYPE"]=="cart")

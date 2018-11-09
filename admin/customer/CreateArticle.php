@@ -32,7 +32,7 @@ $classID=$_GET["ID"];
       <?php
 	$selected = "selected=\"selected\"";
 	$resultTmp = $Customer->GetCustomerList(-1, -1, $type);
-	while($rowTmp=mysql_fetch_array($resultTmp))
+	while($rowTmp=mysqli_fetch_array($resultTmp))
 	{
 			?>
       <option value="<?php echo $rowTmp["T_ID"];?>" <?php if ($_GET["customerID"]==$rowTmp["T_ID"]) echo $selected;?>><?php echo $rowTmp["T_CUSTOMER_NAME"];?></option>
@@ -48,7 +48,7 @@ $classID=$_GET["ID"];
 	<?php
 	$selected = "selected=\"selected\"";
 	$resultTmp = $Customer->GetCustomerModelList($type);
-	while($rowTmp=mysql_fetch_array($resultTmp))
+	while($rowTmp=mysqli_fetch_array($resultTmp))
 	{
 		if ($rowTmp["T_HAVE_SUB_ARTICLE"]==1)
 		{

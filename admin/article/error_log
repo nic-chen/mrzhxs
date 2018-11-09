@@ -1,3 +1,3 @@
-[13-Apr-2011 01:57:24] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home1/paipleco/public_html/www_mrzhxs.com/admin/article/articleList.php on line 33
-[29-Apr-2011 00:35:41] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home1/paipleco/public_html/www_mrzhxs.com/admin/article/articleList.php on line 33
-[31-May-2011 19:59:48] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home1/paipleco/public_html/www_mrzhxs.com/admin/article/articleList.php on line 33
+[13-Apr-2011 01:57:24] PHP Warning:  mysqli_fetch_array(): supplied argument is not a valid MySQL result resource in /home1/paipleco/public_html/www_mrzhxs.com/admin/article/articleList.php on line 33
+[29-Apr-2011 00:35:41] PHP Warning:  mysqli_fetch_array(): supplied argument is not a valid MySQL result resource in /home1/paipleco/public_html/www_mrzhxs.com/admin/article/articleList.php on line 33
+[31-May-2011 19:59:48] PHP Warning:  mysqli_fetch_array(): supplied argument is not a valid MySQL result resource in /home1/paipleco/public_html/www_mrzhxs.com/admin/article/articleList.php on line 33

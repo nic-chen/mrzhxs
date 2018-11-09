@@ -4,9 +4,6 @@ $dateBaseName="paipleco_mrzhxs";
 $dateBaseUser="paipleco_mrzhxs";
 $dateBasePwd="zfm198214";
 
-$allDateBase = mysql_connect("localhost", $dateBaseUser, $dateBasePwd);
-mysql_select_db($dateBaseName,$allDateBase);
+$allDateBase = mysqli_connect("localhost", $dateBaseUser, $dateBasePwd, $dateBaseName);
 
-mysql_query("SET NAMES UTF8");
-
-?>
+mysqli_query("SET NAMES UTF8");

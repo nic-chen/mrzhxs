@@ -17,7 +17,7 @@ if ($thisPage=="articleCreate.php")
 ?>><a href="articleCreate.php"><span>新文章</span></a></li>
 <?php
 $result = $artical->GetArticleModelList();
-while($row=mysql_fetch_array($result))
+while($row=mysqli_fetch_array($result))
 {
 	if ($row["T_STATUS"]==1)
 		continue;

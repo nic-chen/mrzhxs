@@ -28,7 +28,7 @@ else
   <?php
 $result = $Customer->GetCustomerList(-1, -1, $type);
 
-while($row=mysql_fetch_array($result))
+while($row=mysqli_fetch_array($result))
 {
 ?>
   <form action="updateData.php?COM_ID=1002" method="post" style="margin:0px; padding:0px;">
@@ -38,7 +38,7 @@ while($row=mysql_fetch_array($result))
       <td width="20%" align="center"><?php echo date("Y-m-d H:i", strtotime($row["T_CREATE_TIME"])); ?></td>
       <td width="40%" align="center"><?php
 	$resultTmp = $Customer->GetCustomerModelList($type);
-	while($rowTmp=mysql_fetch_array($resultTmp))
+	while($rowTmp=mysqli_fetch_array($resultTmp))
 	{
 		if ($rowTmp["T_HAVE_SUB_ARTICLE"]==1)
 		{

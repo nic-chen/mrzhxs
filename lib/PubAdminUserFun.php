@@ -51,7 +51,7 @@ class admin
 		$SQL=new SQL;
 		$result = $SQL->Query($sSql);
 	
-		if ($row=mysql_fetch_array($result))
+		if ($row=mysqli_fetch_array($result))
 		{
 			return true;
 		}
@@ -86,9 +86,9 @@ class admin
 			$SQL=new SQL;
 			$result = $SQL->Query($sSql);
 			
-			if (mysql_num_rows($result)==1)
+			if (mysqli_num_rows($result)==1)
 			{
-				$detailInfo=mysql_fetch_array($result);
+				$detailInfo=mysqli_fetch_array($result);
 				return true;	//得到管理员等级
 			}
 			else
@@ -110,7 +110,7 @@ class admin
 		$SQL=new SQL;
 		$result = $SQL->Query($sSql);
 	
-		return mysql_fetch_array($result);
+		return mysqli_fetch_array($result);
 	}
 	
 	function GetTotalNoReplyMsg()
@@ -118,7 +118,7 @@ class admin
 		$sSql="select * from customerleavemsg where T_IS_REPLY=false and T_URL='".GetCurrentWebHost()."';";
 		$SQL=new SQL;
 		$result = $SQL->Query($sSql);;
-		return mysql_numrows($result);
+		return mysqli_num_rows($result);
 	}
 
 	/**
@@ -208,7 +208,7 @@ class admin
 			
 			$SQL=new SQL;
 			$result = $SQL->Query($sSql);
-			$sSql="UPDATE customerleavemsg SET T_IS_REPLY=1,T_REPLIED_MSG_INDEX='".mysql_insert_id()."' WHERE T_INDEX='$msgID';";
+			$sSql="UPDATE customerleavemsg SET T_IS_REPLY=1,T_REPLIED_MSG_INDEX='".mysqli_insert_id()."' WHERE T_INDEX='$msgID';";
 			//echo $sSql."<br>";
 			$SQL->Query($sSql);
 			return true;//成功，客户留言

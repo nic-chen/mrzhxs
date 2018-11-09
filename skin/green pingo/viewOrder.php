@@ -20,11 +20,11 @@ if (strlen($searchBy)>0)
 		
 		
 		$result = $SQL->Query($sSql);
-		$nPruNum = mysql_numrows($result);
+		$nPruNum = mysqli_num_rows($result);
 		if ($nPruNum==0)
 			die("wrong order record");
 		
-		$rowOrder=mysql_fetch_array($result);	
+		$rowOrder=mysqli_fetch_array($result);	
 		$itemList=$rowOrder["T_DINGDAN_MINGXI"];
 		$itemOtherInfo=stripslashes("ORDER ID --- [<b>".$rowOrder["T_DATE"].$rowOrder["T_SER"]."</b>]\n\nwe got your payment and have arranged to prepare the items for you. \nPls confirm the shipping address we'll send to:\n--------------------\n".$rowOrder["T_CUS_ADDRESS"]."\n--------------------\n\nIf you have any questions, pls let me know. i'll reply you asap.\nThanks and greeting from ".GetWebNikiName()."");;
 	}
@@ -36,11 +36,11 @@ else
 	
 	
 	$result = $SQL->Query($sSql);
-	$nPruNum = mysql_numrows($result);
+	$nPruNum = mysqli_num_rows($result);
 	if ($nPruNum==0)
 		die("wrong order record");
 		
-	$row=mysql_fetch_array($result);	
+	$row=mysqli_fetch_array($result);	
 	$itemList=$row["T_ITEM_LIST"];
 	$itemOtherInfo=$row["T_MEMO"];
 	$bShowPayment=$row["T_SHOW_PAYMENT"];
@@ -77,7 +77,7 @@ if (strlen($itemOtherInfo)>0 || $bShowPayment)
             <li><?php
   	include(APPROOT."dbCfg.php");
 	$result = $SQL->Query("select * from t_web_conn where T_URL='".GetCurrentWebHost()."'");
-	if ($row=mysql_fetch_array($result))
+	if ($row=mysqli_fetch_array($result))
 	{
 		echo $row["T_PAYPAL_ACCOUNT"];
 	}
@@ -130,7 +130,7 @@ var TabbedPanels3 = new Spry.Widget.TabbedPanels("TabbedPanels3");
 			$pruMemo=substr($strItemList[$i], strlen($strIDItem[0])+1,strlen($strItemList[$i]));
 			
 			$result_currect = $SQL->Query("select * from pru where T_ID='".$strIDItem[0]."'",$allDateBase);
-			$row=mysql_fetch_array($result_currect);
+			$row=mysqli_fetch_array($result_currect);
 			$pru_size=$row["T_SIZE"];
 			$pru_Style=GetStyleInfo($row["T_STYLE_MEN"]);
 			$pru_Brand=$row["T_CHILD"];

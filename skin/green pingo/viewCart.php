@@ -22,8 +22,8 @@ $nCount = count($strItemList);
 			$strIDItem=explode(" ",$strItemList[$i]);
 			$strItemCoolieSI=substr($strItemList[$i], strlen($strIDItem[0])+1,strlen($strItemList[$i]));
 			include("dbCfg.php");
-			$result_currect = mysql_query("select * from pru where T_ID='".$strIDItem[0]."'",$allDateBase);
-			$row=mysql_fetch_array($result_currect);
+			$result_currect = mysqli_query("select * from pru where T_ID='".$strIDItem[0]."'",$allDateBase);
+			$row=mysqli_fetch_array($result_currect);
 			$pru_size=$row["T_SIZE"];
 	?>
           <div class="cartItemMainFrame">

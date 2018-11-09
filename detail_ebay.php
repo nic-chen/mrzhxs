@@ -5,14 +5,14 @@ include_once(LIBPATH."lib.php");
 	$pru_id=trim($_GET["T_ID"]);
 
 	include(APPROOT."dbCfg.php");
-	$result = mysql_query("select * from pru where T_ID='".$pru_id."'",$allDateBase);
-	$nPruNum = mysql_numrows($result);
+	$result = mysqli_query("select * from pru where T_ID='".$pru_id."'",$allDateBase);
+	$nPruNum = mysqli_num_rows($result);
 	if (0==$nPruNum)
 		echo "the production is not found!";
 	
 	else
 	{
-		$row=mysql_fetch_array($result);
+		$row=mysqli_fetch_array($result);
 		$pru_brand=$row["T_CHILD"];
 		$pru_class=$row["T_CLASS"];
 		$pru_size=$row["T_SIZE"];

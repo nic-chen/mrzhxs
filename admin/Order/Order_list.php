@@ -94,7 +94,7 @@ $SQL = new SQL;
 $cur_admin = new admin;
 
 $result = $SQL->Query("select * from OFFER_ALL_USER where T_DATE='$strCreateDate' and T_SER='$strCreateSer';");
-$rowOrder=mysql_fetch_array($result);
+$rowOrder=mysqli_fetch_array($result);
 if (!$rowOrder)
 	$rowOrder=array();
 
@@ -239,9 +239,9 @@ a:active {
 						$sSql="select * from OFFER_ALL_USER where (CONCAT_WS('',T_DATE, T_SER, ' ', T_USER_NAME, ' ', T_MAIL, ' ', T_JIAOYI_MONEY, ' ', T_CUS_ADDRESS, ' ', T_DINGDAN_MINGXI, ' ', T_CREATE_BEIZHU, ' ', T_PAY_CODE, ' ', T_YUNDAN_NUM, ' ', T_YUNDAN_COM, ' ', T_YUNDAN_BEIZHU, ' ', T_SUB_ORDER_ID, ' ') like '%".$id."%') AND T_URL='".GetCurrentWebHost()."' AND ".$sKeySql;
 						include(APPROOT."dbCfg.php");
 						$result = $SQL->Query($sSql);
-						$row=mysql_fetch_array($result);
+						$row=mysqli_fetch_array($result);
 						
-						if (!$row || 1!=mysql_numrows($result))
+						if (!$row || 1!=mysqli_num_rows($result))
 						{//dont find the correct order
 							continue;
 						}

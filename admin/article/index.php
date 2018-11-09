@@ -19,7 +19,7 @@ include("top_menu.php"); ?>
 <?php
 $result = $artical->GetArticleModelList();
 $strSelected="selected=\"selected\"";
-while($row=mysql_fetch_array($result))
+while($row=mysqli_fetch_array($result))
 {
 ?>
 <form action="updateData.php?COM_ID=1002" method="post" style="margin:0px; padding:0px;">

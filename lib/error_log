@@ -1,4 +1,4 @@
 [03-Jun-2011 06:52:20] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: User paipleco_mrzhxs already has more than 'max_user_connections' active connections in /home1/paipleco/public_html/www_mrzhxs.com/dbCon.php on line 7
 [03-Jun-2011 06:52:20] PHP Warning:  mysql_select_db(): supplied argument is not a valid MySQL-Link resource in /home1/paipleco/public_html/www_mrzhxs.com/dbCon.php on line 8
-[03-Jun-2011 06:52:20] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'paipleco'@'localhost' (using password: NO) in /home1/paipleco/public_html/www_mrzhxs.com/dbCon.php on line 10
-[03-Jun-2011 06:52:20] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home1/paipleco/public_html/www_mrzhxs.com/dbCon.php on line 10
+[03-Jun-2011 06:52:20] PHP Warning:  mysqli_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'paipleco'@'localhost' (using password: NO) in /home1/paipleco/public_html/www_mrzhxs.com/dbCon.php on line 10
+[03-Jun-2011 06:52:20] PHP Warning:  mysqli_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home1/paipleco/public_html/www_mrzhxs.com/dbCon.php on line 10

@@ -7,8 +7,8 @@
                   <?php
                   include("dbCfg.php");
     			  $sSql = "select * from pru where T_STATUS=0 order by T_HOT DESC, T_ID DESC LIMIT 0, 40";
-				  $result_currect = mysql_query($sSql,$allDateBase);
-				  while($row=mysql_fetch_array($result_currect))
+				  $result_currect = mysqli_query($sSql,$allDateBase);
+				  while($row=mysqli_fetch_array($result_currect))
 				  {
 				  ?>
                      <td><a href="?p=ItemDetail&T_ID=<?php echo $row["T_ID"];?>"><img src="<?php echo GetItemPathInfo($row["T_ID"], $row["Version"])."head.jpg";?>" class="roll_item_pic"/></a></td>
@@ -26,8 +26,8 @@
 	include("dbCfg.php");
     	
 	$sSql="select * from T_HOT_ITEM where T_HOT_TYPE='index_new_arraivals' and  T_URL='".GetCurrentWebHost()."' order by T_ORDER ASC, T_ID DESC";
-	$result_HOT_item = mysql_query($sSql,$allDateBase);
-	$nPruNum = mysql_numrows($result_HOT_item);
+	$result_HOT_item = mysqli_query($sSql,$allDateBase);
+	$nPruNum = mysqli_num_rows($result_HOT_item);
 	
 	$nItemEachRow=5;			//item total in row
 	$nRow=(int)($nPruNum/$nItemEachRow);	//full row total
@@ -44,15 +44,15 @@
 		$thisRowTotalItem=0;
         while($bIsHaveNextOne)
 		{
-			$rowHotItem=mysql_fetch_array($result_HOT_item);
+			$rowHotItem=mysqli_fetch_array($result_HOT_item);
 			if (!$rowHotItem)
 			{
 				$bIsHaveNextRow=false;
 				break;
 			}
 			$sSql="select * from pru where T_ID='".$rowHotItem["T_ID"]."'";
-			$result_correct_item = mysql_query($sSql,$allDateBase);
-			$row=mysql_fetch_array($result_correct_item);
+			$result_correct_item = mysqli_query($sSql,$allDateBase);
+			$row=mysqli_fetch_array($result_correct_item);
 			if ($row)
 			{
 				$thisRowTotalItem++;

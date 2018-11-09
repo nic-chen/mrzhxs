@@ -21,7 +21,7 @@ else
 <ul class="article_ul">
 	<?php
     $result = $Customer->GetModelContect($_GET["customerID"], $_GET["articleClassID"]);
-	while($row=mysql_fetch_array($result))
+	while($row=mysqli_fetch_array($result))
 	{
 	?>
 	<li><?php echo $row["T_TITLE"];?> <a href="ViewChangeArticle.php?type=hualang&id=<?php echo $row["T_ID"];?>"><span class="hyperlink">查看修改</span></a> | <a href="updateData.php?COM_ID=1012&id=<?php echo $row["T_ID"];?>&type=<?php echo $_GET["type"];?>"><span class="hyperlink">删除</span></a></li>

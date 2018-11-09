@@ -21,7 +21,7 @@ class WebConfig
 		$SQL=new SQL;
 		$result = $SQL->Query("select * from t_web_conn where T_URL='".GetCurrentMainWebName()."';");
 		
-		if ($row=mysql_fetch_array($result))
+		if ($row=mysqli_fetch_array($result))
 		{
 			$this->webURL=$row["T_URL"];
 			$this->webNAME=$row["T_WEB_NAME"];
@@ -62,7 +62,7 @@ class WebConfig
 		$errorInfo+=$sSql."<br>";
 	
 		$result = $SQL->Query($sSql);
-		$nPruNum = mysql_numrows($result);
+		$nPruNum = mysqli_num_rows($result);
 		if ($nPruNum==0)
 		{	
 			$sSql="INSERT INTO t_web_conn (T_WEB_NAME, T_NIKI_NAME, T_CONTACT_INFO, T_WELCOME_TEXT, T_URL, T_WEB_HOME, T_PAYPAL_ACCOUNT, T_IS_SHOW_PRICE) VALUES('$web_page_subject', '$web_NikiName', '$web_ContactInfo', '$web_welcome_text', '".GetCurrentWebHost()."', '$web_home', '$web_paypal', $web_show_sell_price)";
@@ -249,12 +249,12 @@ function UpdateWebMenu()
 	$SQL=new SQL;
 	$result = $SQL->Query("SELECT DISTINCT T_CLASS FROM pru ");
 	$i=0; $pruClass=array();$pruClassHot=array();
-	while($row=mysql_fetch_array($result))
+	while($row=mysqli_fetch_array($result))
 	{
 		$pruClass[$i]=$row["T_CLASS"];
 		
 		$resultCur=$SQL->Query("SELECT * FROM pru where T_CLASS='".$row["T_CLASS"]."' order by T_HOT DESC LIMIT 0,1");
-		$rowCur=mysql_fetch_array($resultCur);
+		$rowCur=mysqli_fetch_array($resultCur);
 		$pruClassHot[$i]=$rowCur["T_HOT"];
 		$i++;
 		echo $pruClass[$i-1]." ".$pruClassHot[$i-1]." <br>";
@@ -299,7 +299,7 @@ function UpdateWebMenu()
 		$SQL=new SQL;
 		$result = $SQL->Query("SELECT DISTINCT T_CHILD FROM pru where T_CLASS='$pruClass[$m]' ORDER BY T_CHILD");
 		$bFirst=true;
-		while($row=mysql_fetch_array($result))
+		while($row=mysqli_fetch_array($result))
 		{
 			if ($bFirst)
 			{
@@ -313,19 +313,19 @@ function UpdateWebMenu()
 			fwrite($f, $data);
 			$SQL=new SQL;
 			$resultTmp = $SQL->Query("SELECT * FROM pru where T_CLASS='$pruClass[$m]' and T_CHILD='".$row["T_CHILD"]."' and T_STYLE_MEN=2 limit 0,1");
-			if (mysql_fetch_array($resultTmp))
+			if (mysqli_fetch_array($resultTmp))
 			{
 				$data="menu.addlevel2menuitem('Women style','?p=search&T_CHILD=".$row["T_CHILD"]."&T_CLASS=$pruClass[$m]&sex=2');\r\n";
 				fwrite($f, $data);
 			}
 			$resultTmp = $SQL->Query("SELECT * FROM pru where T_CLASS='$pruClass[$m]' and T_CHILD='".$row["T_CHILD"]."' and T_STYLE_MEN=1 limit 0,1");
-			if (mysql_fetch_array($resultTmp))
+			if (mysqli_fetch_array($resultTmp))
 			{
 				$data="menu.addlevel2menuitem('Men style','?p=search&T_CHILD=".$row["T_CHILD"]."&T_CLASS=$pruClass[$m]&sex=1');\r\n";
 				fwrite($f, $data);
 			}
 			$resultTmp = $SQL->Query("SELECT * FROM pru where T_CLASS='$pruClass[$m]' and T_CHILD='".$row["T_CHILD"]."' and T_STYLE_MEN=0 limit 0,1");
-			if (mysql_fetch_array($resultTmp))
+			if (mysqli_fetch_array($resultTmp))
 			{
 				$data="menu.addlevel2menuitem('Unsex style','?p=search&T_CHILD=".$row["T_CHILD"]."&T_CLASS=$pruClass[$m]&sex=0');\r\n";
 				fwrite($f, $data);
@@ -346,12 +346,12 @@ function UpdateWebMenu()
 	$SQL=new SQL;
 	$result = $SQL->Query("SELECT DISTINCT T_CHILD FROM pru ");
 	$i=0; $pruChild=array();$pruChildHot=array();
-	while($row=mysql_fetch_array($result))
+	while($row=mysqli_fetch_array($result))
 	{
 		$pruChild[$i]=$row["T_CHILD"];
 		
 		$resultCur=$SQL->Query("SELECT * FROM pru where T_CHILD='".$row["T_CHILD"]."' order by T_HOT desc limit 0,1");
-		$rowCur=mysql_fetch_array($resultCur);
+		$rowCur=mysqli_fetch_array($resultCur);
 		$pruChildHot[$i]=$rowCur["T_HOT"];
 		$i++;
 	}
@@ -392,7 +392,7 @@ function UpdateWebMenu()
 		$SQL=new SQL;
 		$result = $SQL->Query("SELECT DISTINCT T_CLASS FROM pru where T_CHILD='$pruChild[$m]' ORDER BY T_CLASS");
 		$bFirst=true;
-		while($row=mysql_fetch_array($result))
+		while($row=mysqli_fetch_array($result))
 		{
 			if ($bFirst)
 			{
@@ -405,19 +405,19 @@ function UpdateWebMenu()
 			$data="menu.addlevel2menu();\r\n";
 			fwrite($f, $data);
 			$resultTmp = $SQL->Query("SELECT * FROM pru where T_CHILD='$pruChild[$m]' and T_CLASS='".$row["T_CLASS"]."' and T_STYLE_MEN=2 limit 0,1");
-			if (mysql_fetch_array($resultTmp))
+			if (mysqli_fetch_array($resultTmp))
 			{
 				$data="menu.addlevel2menuitem('Women style','?p=search&T_CHILD=$pruChild[$m]&T_CLASS=".$row["T_CLASS"]."&sex=2');\r\n";
 				fwrite($f, $data);
 			}
 			$resultTmp = $SQL->Query("SELECT * FROM pru where T_CHILD='$pruChild[$m]' and T_CLASS='".$row["T_CLASS"]."' and T_STYLE_MEN=1 limit 0,1");
-			if (mysql_fetch_array($resultTmp))
+			if (mysqli_fetch_array($resultTmp))
 			{
 				$data="menu.addlevel2menuitem('Men style','?p=search&T_CHILD=$pruChild[$m]&T_CLASS=".$row["T_CLASS"]."&sex=1');\r\n";
 				fwrite($f, $data);
 			}
 			$resultTmp = $SQL->Query("SELECT * FROM pru where T_CHILD='$pruChild[$m]' and T_CLASS='".$row["T_CLASS"]."' and T_STYLE_MEN=0 limit 0,1");
-			if (mysql_fetch_array($resultTmp))
+			if (mysqli_fetch_array($resultTmp))
 			{
 				$data="menu.addlevel2menuitem('Unsex style','?p=search&T_CHILD=$pruChild[$m]&T_CLASS=".$row["T_CLASS"]."&sex=0');\r\n";
 				fwrite($f, $data);
@@ -455,7 +455,7 @@ function GetItemPathInfo($pru_id, $pru_version=NULL)
 		$SQL=new SQL;
 		$sSql="select * from pru where T_ID='$pru_id'";
 		$result = $SQL->Query($sSql);
-		if ($row=mysql_fetch_array($result))
+		if ($row=mysqli_fetch_array($result))
 		{
 			if ($row["Version"]==1)
 			{
@@ -509,14 +509,14 @@ function GetLastRemindMailDate()
 	//die("select * from t_web_conn where T_URL='".GetCurrentWebHost()."' ;");
 	$result = $SQL->Query("select * from t_web_conn where T_URL='".GetCurrentWebHost()."' ;");
 	
-	$nPruNum = mysql_numrows($result);
+	$nPruNum = mysqli_num_rows($result);
 	if ($nPruNum==0)
 	{
 		return "";
 	}
 	else
 	{
-		$row=mysql_fetch_array($result);
+		$row=mysqli_fetch_array($result);
 		return $row["T_TELL_ADMIN_FOR_NEW"];
 	}
 }

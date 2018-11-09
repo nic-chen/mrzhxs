@@ -57,9 +57,9 @@ $strSearchWord=$_GET["key"];
 
 	$sSql="select * from admin order by T_ID ASC LIMIT ".(($cur_page-1)*30).", 30";
 	$result = $SQL->Query($sSql);
-	$nItemTotal = mysql_numrows($result);
+	$nItemTotal = mysqli_num_rows($result);
 
-	while(($row=mysql_fetch_array($result)))
+	while(($row=mysqli_fetch_array($result)))
 	{
   ?>
   <tr bgcolor="#C2DC71" onMouseOver="this.bgColor='#CDD4BD';" onMouseOut="this.bgColor='#C2DC71'">

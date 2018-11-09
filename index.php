@@ -1,8 +1,4 @@
 <?php
-ini_set("display_errors", "On");
-
-error_reporting(E_ALL | E_STRICT);
-
 //
 include("geoip.php");
 // open the geoip database

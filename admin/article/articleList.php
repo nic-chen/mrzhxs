@@ -30,7 +30,7 @@ $classID=$_GET["ID"];
   </tr>
   <?php
   $result = $artical->GetArticleList($classID, -1, -1, true);
-  while($row=mysql_fetch_array($result))
+  while($row=mysqli_fetch_array($result))
   {
   ?>
   <tr class="article">

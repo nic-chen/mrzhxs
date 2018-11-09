@@ -35,7 +35,7 @@ class Product
 					$SQL=new SQL;
 					$sSql="select * from pru where T_ID='$pruItemDetail[0]';";
 					$result = $SQL->Query($sSql);
-					if (($row=mysql_fetch_array($result)))
+					if (($row=mysqli_fetch_array($result)))
 					{
 						echo $pruItemDetail[0]." The ID has been used. pls check this.<br>";
 						$bIsSucess=FALSE;
@@ -104,7 +104,7 @@ class Product
 		$SQL=new SQL;
 		$sSql="select * from pru where T_ID='$pru_id';";
 		$result = $SQL->Query($sSql);
-		if (($row=mysql_fetch_array($result)))
+		if (($row=mysqli_fetch_array($result)))
 		{
 			die ( $pruItemDetail[0]." The ID has been used. pls check this.<br>" );
 			$bIsSucess=FALSE;
@@ -144,7 +144,7 @@ class Product
 	{
 		$SQL=new SQL;
 		$result = $SQL->Query("select * from pru where T_ID='$pru_id'");
-		if ($row=mysql_fetch_array($result))
+		if ($row=mysqli_fetch_array($result))
 		{
 			deldir(GetItemPathInfo($row["T_ID"], $row["Version"]));
 			//die(GetItemPathInfo($row["T_ID"], $row["Version"]));
@@ -222,7 +222,7 @@ class Product
 			$SQL=new SQL;
 			$sSql="select * from pru where T_ID='$pru_id'";
 			$result = $SQL->Query($sSql);
-			if ($row=mysql_fetch_array($result))
+			if ($row=mysqli_fetch_array($result))
 			{
 				if ($row["Version"]==1)
 				{

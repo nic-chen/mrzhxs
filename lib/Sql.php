@@ -8,7 +8,7 @@ class SQL
 	{
 		include(APPROOT."dbCfg.php");
 		//echo $sSql;
-		return mysql_query($sSql, $allDateBase);;
+		return mysqli_query($sSql, $allDateBase);;
 	}
 }
 ?>

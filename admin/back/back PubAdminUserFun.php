@@ -71,9 +71,9 @@ function GetAdminIfSignIn()
 	else
 		$sSql=$sSql." and T_URL='".GetCurrentWebHost()."'";
 	include(APPROOT."dbCfg.php");
-	$result = mysql_query($sSql,$pingoDateBase);
+	$result = mysqli_query($sSql,$pingoDateBase);
 
-	if ($row=mysql_fetch_array($result))
+	if ($row=mysqli_fetch_array($result))
 	{
 		return true;
 	}
@@ -121,11 +121,11 @@ function GetAdminDetailInfo($webURL, & $detailInfo)
 	{
 		include(APPROOT."dbCfg.php");
 		$sSql="select * from admin where T_URL='".$webURL."'; ";
-		$result = mysql_query($sSql, $pingoDateBase);
+		$result = mysqli_query($sSql, $pingoDateBase);
 		
-		if (mysql_num_rows($result)==1)
+		if (mysqli_num_rows($result)==1)
 		{
-			$row=mysql_fetch_array($result);
+			$row=mysqli_fetch_array($result);
 			$detailInfo[0]=$row["T_PWD"];
 			$detailInfo[1]=$row["T_DENG_JI"];
 			$detailInfo[2]=$row["T_MEMO"];
@@ -174,7 +174,7 @@ function SetAdminDetailInfo($userID, &$detailInfo)
 	{
 		include(APPROOT."dbCfg.php");
 		$sSql="update admin set T_PWD='$detailInfo[0]', T_DENG_JI=$detailInfo[1], T_MEMO='$detailInfo[2]', T_QIAN_MING='$detailInfo[3]', T_URL='$detailInfo[4]', T_USER_MAIL_ADD='$detailInfo[5]', T_USER_MAIL_PWD='$detailInfo[6]', T_USER_WEBSITE='$detailInfo[7]', T_USER_MENU='$detailInfo[8]', T_USER_NI_CHENG='$detailInfo[9]', T_YOUJU_IP_ADD='$detailInfo[11]', T_YOUJU_DUANKOU='$detailInfo[12]',T_NAME='$detailInfo[13]' where T_ID='".$userID."'; ";
-		$result = mysql_query($sSql, $pingoDateBase);
+		$result = mysqli_query($sSql, $pingoDateBase);
 		return true;
 	}
 }
@@ -201,7 +201,7 @@ function AddAdminDetailInfo(&$detailInfo)
 	include(APPROOT."dbCfg.php");
 	$sSql="INSERT INTO admin (T_NAME ,T_PWD ,T_DENG_JI ,T_MEMO ,T_QIAN_MING ,T_URL ,T_USER_MAIL_ADD ,T_USER_MAIL_PWD ,T_USER_WEBSITE ,T_USER_MENU ,T_USER_NI_CHENG ,T_YOUJU_IP_ADD ,T_YOUJU_DUANKOU)
 VALUES ('$detailInfo[13]', '$detailInfo[0]', '$detailInfo[1]', '$detailInfo[2]', '$detailInfo[3]', '$detailInfo[4]', '$detailInfo[5]', '$detailInfo[6]', '$detailInfo[7]', '$detailInfo[8]', '$detailInfo[9]','$detailInfo[11]', '$detailInfo[12]');";
-	$result = mysql_query($sSql, $pingoDateBase);
+	$result = mysqli_query($sSql, $pingoDateBase);
 	return true;
 }
 
@@ -230,11 +230,11 @@ function AddAdminLeaveMsg($msgID, $pru_ID, $customerIP, $customerMsg, $customerM
 				"'$pru_ID', now(), '$customerMsg', '$customerIP', '$customerMail', '$Nickname', $role, 1, '".GetCurrentWebHost()."');";
 		//echo $sSql."<br>";
 		include(APPROOT."dbCfg.php");
-		mysql_query($sSql, $pingoDateBase);
+		mysqli_query($sSql, $pingoDateBase);
 		//die (mysql_insert_id()."<br><br>");
 		$sSql="UPDATE customerleavemsg SET T_IS_REPLY=1, T_REPLIED_MSG_INDEX='".mysql_insert_id()."' WHERE T_INDEX=$msgID;";
 		//die( $sSql."<br>");
-		mysql_query($sSql, $pingoDateBase);
+		mysqli_query($sSql, $pingoDateBase);
 		return true;//成功，客户留言
 	}
 }
@@ -257,13 +257,13 @@ function SetCustomerMessageStatus($msgID, $doAction)
 		{
 			include(APPROOT."dbCfg.php");
 			$sSql="delete from customerleavemsg where T_INDEX='$msgID' limit 1;";
-			mysql_query($sSql, $pingoDateBase);
+			mysqli_query($sSql, $pingoDateBase);
 		}
 		elseif($doAction==2)
 		{
 			include(APPROOT."dbCfg.php");
 			$sSql="UPDATE customerleavemsg SET T_IS_REPLY=1 WHERE T_INDEX='$msgID';";
-			mysql_query($sSql, $pingoDateBase);
+			mysqli_query($sSql, $pingoDateBase);
 		}
 	}
 }

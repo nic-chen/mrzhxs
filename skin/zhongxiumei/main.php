@@ -10,7 +10,7 @@ function WriteArticleModel($id, $length, $title)
         <?php
 		$artical = new article;
 		$resultTmp = $artical->GetArticleList($id, 0, $length, false);
-		while($row=mysql_fetch_array($resultTmp))
+		while($row=mysqli_fetch_array($resultTmp))
 		{
 		?>
             <li><a href="?p=news&model=<?php echo $id;?>&text=<?php echo $row["T_ID"];?>"><?php echo wordscut($row["T_TITLE"], 60);?></a></li>
@@ -35,7 +35,7 @@ function WriteArticleModel($id, $length, $title)
 			 $pics=$links=$texts="";
 			 $index = 0;
 			 $reslut = $AD->GetAdListByType("huandengpian");
-			 while($row=mysql_fetch_array($reslut))
+			 while($row=mysqli_fetch_array($reslut))
 			 {
 				if ($index == 0)
 				{
@@ -64,7 +64,7 @@ function WriteArticleModel($id, $length, $title)
 			</li>
             <?php 
 			 $reslut = $AD->GetAdListByType("wenziguanggao");
-			 while($row=mysql_fetch_array($reslut))
+			 while($row=mysqli_fetch_array($reslut))
 			 {
  			?>
 			<li><?php echo $row["T_MEMO"];?></li>
@@ -92,7 +92,7 @@ function WriteArticleModel($id, $length, $title)
 		  $result = $BuyLog->GetBuyLogList(1);
 		  $nMaxTotal = 15;
 		  $nPos = 0;
-		  while($row=mysql_fetch_array($result))
+		  while($row=mysqli_fetch_array($result))
 		  {
 		  		if (++$nPos>$nMaxTotal)
 					break;
@@ -100,11 +100,11 @@ function WriteArticleModel($id, $length, $title)
 				{
 					$SQL = new SQL;
 					$resTmp = $SQL->Query("select * from pru where pru.T_ID='".$row["T_PRU_ID"]."' ");
-					if ($rowTmp=mysql_fetch_array($resTmp))
+					if ($rowTmp=mysqli_fetch_array($resTmp))
 					{
 						$SQL2 = new SQL;
 						$resTmp2 = $SQL2->Query("select * from registercustomer where ".$rowTmp["T_USER_ID"]." = registercustomer.T_ID");
-						if ($rowTmp2=mysql_fetch_array($resTmp2))
+						if ($rowTmp2=mysqli_fetch_array($resTmp2))
 							echo "买家订购 ".$rowTmp2["T_CUSTOMER_NAME"]." 作品[<a href='?p=product&type=ItemDetail&T_ID=".$row["T_PRU_ID"]."'>".$row["T_PRU_ID"]."</a>] ".date("y-m-d", strtotime($row["T_CREATE_TIME"]))."<br>";
 					}
 				}
@@ -112,7 +112,7 @@ function WriteArticleModel($id, $length, $title)
 				{
 					$Customer = new Customer;
 					$res = $Customer->GetCustomerByID($row["T_USER_ID"]);
-					if ($rowTmp=mysql_fetch_array($res))
+					if ($rowTmp=mysqli_fetch_array($res))
 						echo "买家从 ".$rowTmp["T_CUSTOMER_NAME"]." 网站订购产品 ".date("y-m-d", strtotime($row["T_CREATE_TIME"]))."<br>";
 				}
 		  }
@@ -350,13 +350,13 @@ Marquee.prototype.Scroll = function()
 	<div id="border_left">
 		<DIV class="article">
 			<?php
-			if($row=mysql_fetch_array($rowActicaleModel))
+			if($row=mysqli_fetch_array($rowActicaleModel))
 				WriteArticleModel($row["T_ID"], 8, $row["T_MODELNAME"]);
 			?>
 		</DIV>
 		<DIV class="article">
 			<?php
-			if($row=mysql_fetch_array($rowActicaleModel))
+			if($row=mysqli_fetch_array($rowActicaleModel))
 				WriteArticleModel($row["T_ID"], 8, $row["T_MODELNAME"]);
 			?>
 		</DIV>
@@ -366,20 +366,20 @@ Marquee.prototype.Scroll = function()
 <DIV class="clearfix">
 	<DIV class="article" id="border_right">
         <?php
-		if($row=mysql_fetch_array($rowActicaleModel))
+		if($row=mysqli_fetch_array($rowActicaleModel))
 			WriteArticleModel($row["T_ID"], 8, $row["T_MODELNAME"]);
 		?>
     </DIV>
 	<div id="border_left">
 		<DIV class="article">
 			<?php
-			if($row=mysql_fetch_array($rowActicaleModel))
+			if($row=mysqli_fetch_array($rowActicaleModel))
 				WriteArticleModel($row["T_ID"], 8, $row["T_MODELNAME"]);
 			?>
 		</DIV>
 		<DIV class="article">
 			<?php
-			if($row=mysql_fetch_array($rowActicaleModel))
+			if($row=mysqli_fetch_array($rowActicaleModel))
 				WriteArticleModel($row["T_ID"], 8, $row["T_MODELNAME"]);
 			?>
 		</DIV>
@@ -401,7 +401,7 @@ $guanggaoweiResult = $AD->GetAdListByType("huandengpian_head2");
 			 $pics=$links=$texts="";
 			 $index = 0;
 			 $reslut = $AD->GetAdListByType("huandengpian_head2");
-			 while($row=mysql_fetch_array($reslut))
+			 while($row=mysqli_fetch_array($reslut))
 			 {
 				if ($index == 0)
 				{
@@ -484,7 +484,7 @@ for ($i=0; $i<8; $i++)
 			$index = 0;
 			$Customer = new Customer;
 			$totalPru = 0;
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				$totalPru++;
 				$index=$index%6;
@@ -499,7 +499,7 @@ for ($i=0; $i<8; $i++)
 				
 				$SQL2 = new SQL;
 				$result2 = $SQL2->Query("select T_CUSTOMER_NAME from registercustomer where ".$row["T_USER_ID"]." = registercustomer.T_ID ");
-				$row2 = mysql_fetch_array($result2)
+				$row2 = mysqli_fetch_array($result2)
 			?>
 				<ul class="index_pru">
 					<li id="picture"><a href="<?php echo $url;?>"><img src="<?php echo GetItemPathInfo($row["T_ID"], $row["Version"])."head.jpg";?>"/></a></li>
@@ -538,7 +538,7 @@ for ($i=0; $i<8; $i++)
 		$result = $BuyLog->GetBuyLogList(1);
 		$nMaxTotal = 10;
 		$nPos = 0;
-		while($row=mysql_fetch_array($result))
+		while($row=mysqli_fetch_array($result))
 		{
 			if (++$nPos>$nMaxTotal)
 				break;
@@ -548,11 +548,11 @@ for ($i=0; $i<8; $i++)
 				{
 					$SQL = new SQL;
 					$resTmp = $SQL->Query("select * from pru where pru.T_ID='".$row["T_PRU_ID"]."'");
-					if ($rowTmp=mysql_fetch_array($resTmp))
+					if ($rowTmp=mysqli_fetch_array($resTmp))
 					{
 						$SQL2 = new SQL;
 						$resTmp2 = $SQL2->Query("select * from registercustomer where '".$rowTmp["T_USER_ID"]."' = registercustomer.T_ID");
-						if ($rowTmp2=mysql_fetch_array($resTmp2))
+						if ($rowTmp2=mysqli_fetch_array($resTmp2))
 							echo "买家订购 ".$rowTmp2["T_CUSTOMER_NAME"]." 作品[<a href='?p=product&type=ItemDetail&T_ID=".$row["T_PRU_ID"]."'>".$row["T_PRU_ID"]."</a>] ".date("y-m-d", strtotime($row["T_CREATE_TIME"]));
 					}
 					else
@@ -562,7 +562,7 @@ for ($i=0; $i<8; $i++)
 				{
 					$Customer = new Customer;
 					$res = $Customer->GetCustomerByID($row["T_USER_ID"]);
-					if ($rowTmp=mysql_fetch_array($res))
+					if ($rowTmp=mysqli_fetch_array($res))
 						echo "买家从 ".$rowTmp["T_CUSTOMER_NAME"]." 网站订购产品 ".date("y-m-d", strtotime($row["T_CREATE_TIME"]));
 				}
 			?></li>
@@ -578,7 +578,7 @@ for ($i=0; $i<8; $i++)
 			$result = $BuyLog->GetBuyLogList(NULL);
 			$nMaxTotal = 10;
 			$nPos = 0;
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				if (++$nPos>$nMaxTotal)
 					break;
@@ -590,11 +590,11 @@ for ($i=0; $i<8; $i++)
 				{
 					$SQL = new SQL;
 					$resTmp = $SQL->Query("select * from pru where pru.T_ID='".$row["T_PRU_ID"]."' ");
-					if ($rowTmp=mysql_fetch_array($resTmp))
+					if ($rowTmp=mysqli_fetch_array($resTmp))
 					{
 						$SQL2 = new SQL;
 						$resTmp2 = $SQL2->Query("select T_CUSTOMER_NAME from registercustomer where '".$rowTmp["T_USER_ID"]."' = registercustomer.T_ID");
-						if ($rowTmp2=mysql_fetch_array($resTmp2))
+						if ($rowTmp2=mysqli_fetch_array($resTmp2))
 							echo "买家订购 ".$rowTmp2["T_CUSTOMER_NAME"]." 作品[<a href='?p=product&type=ItemDetail&T_ID=".$row["T_PRU_ID"]."'>".$row["T_PRU_ID"]."</a>] ".date("y-m-d", strtotime($row["T_CREATE_TIME"]));
 					}
 				}
@@ -602,7 +602,7 @@ for ($i=0; $i<8; $i++)
 				{
 					$Customer = new Customer;
 					$res = $Customer->GetCustomerByID($row["T_USER_ID"]);
-					if ($rowTmp=mysql_fetch_array($res))
+					if ($rowTmp=mysqli_fetch_array($res))
 						echo "买家给 ".$rowTmp["T_CUSTOMER_NAME"]." 网站留言 ".date("y-m-d", strtotime($row["T_CREATE_TIME"]));
 				}
 			}
@@ -612,11 +612,11 @@ for ($i=0; $i<8; $i++)
 				{
 					$SQL = new SQL;
 					$resTmp = $SQL->Query("select * from pru where pru.T_ID='".$row["T_PRU_ID"]."' ");
-					if ($rowTmp=mysql_fetch_array($resTmp))
+					if ($rowTmp=mysqli_fetch_array($resTmp))
 					{
 						$SQL2 = new SQL;
 						$resTmp2 = $SQL2->Query("select T_CUSTOMER_NAME from registercustomer where '".$rowTmp["T_USER_ID"]."' = registercustomer.T_ID");
-						if ($rowTmp2=mysql_fetch_array($resTmp2))
+						if ($rowTmp2=mysqli_fetch_array($resTmp2))
 							echo "买家订购 ".$rowTmp2["T_CUSTOMER_NAME"]." 作品[<a href='?p=product&type=ItemDetail&T_ID=".$row["T_PRU_ID"]."'>".$row["T_PRU_ID"]."</a>] ".date("y-m-d", strtotime($row["T_CREATE_TIME"]));
 					}
 				}
@@ -624,7 +624,7 @@ for ($i=0; $i<8; $i++)
 				{
 					$Customer = new Customer;
 					$res = $Customer->GetCustomerByID($row["T_USER_ID"]);
-					if ($rowTmp=mysql_fetch_array($res))
+					if ($rowTmp=mysqli_fetch_array($res))
 						echo "买家从 ".$rowTmp["T_CUSTOMER_NAME"]." 网站订购产品 ".date("y-m-d", strtotime($row["T_CREATE_TIME"]));
 				}
 			}
@@ -652,7 +652,7 @@ $guanggaoweiResult = $AD->GetAdListByType("bottomhuandengpian");
 			 $pics=$links=$texts="";
 			 $index = 0;
 			 $reslut = $AD->GetAdListByType("bottomhuandengpian");
-			 while($row=mysql_fetch_array($reslut))
+			 while($row=mysqli_fetch_array($reslut))
 			 {
 				if ($index == 0)
 				{
@@ -687,7 +687,7 @@ $guanggaoweiResult = $AD->GetAdListByType("bottomhuandengpian");
 	<?php
 	$frendLink = new FrendLink;
 	$result  = $frendLink->GetFrendLinkList();
-	while($row=mysql_fetch_array($result))
+	while($row=mysqli_fetch_array($result))
 	{
 	?>
 		<li>|</li>

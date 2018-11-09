@@ -5,7 +5,7 @@ $customer = new customer;
 $index = 0;
 $nItemEachRow = 5;
 $result = $customer->GetCustomerList(-1, -1, "");
-while($row=mysql_fetch_array($result))
+while($row=mysqli_fetch_array($result))
 {
 	if ($row["T_STATUS"]!=0 || date("Y-m-d", strtotime($row["T_END_TIME"]))<date("Y-m-d"))
 		continue;

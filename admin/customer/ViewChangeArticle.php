@@ -20,7 +20,7 @@ else
 	include($type."_top_menu.php");
 
 $result = $Customer->GetModelContectByID($_GET["id"]);
-$row=mysql_fetch_array($result);
+$row=mysqli_fetch_array($result);
 ?>
 
 <form action="updateData.php?COM_ID=1010" method="post" style="margin:0px; padding:0px;border:solid #006699 1PX; margin-top:-1px; padding-top:20px; padding-bottom:15px;" id="baseInfo"  enctype="multipart/form-data">

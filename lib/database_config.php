@@ -7,5 +7,5 @@ $dateBaseUrl="l27.0.0.1";		//the database's url.
 $allDateBase = mysql_connect($dateBaseUrl, $dateBaseName, $dateBasePwd);
 mysql_select_db($dateBaseName,$allDateBase);
 
-mysql_query("SET NAMES UTF8");
+mysqli_query("SET NAMES UTF8");
 ?>

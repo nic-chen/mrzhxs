@@ -483,13 +483,13 @@ function ClassList($classs)
 	$sSql=$sSql." group by T_CHILD";
 
 	include("dbCfg.php");
-	$result_currect = mysql_query($sSql,$allDateBase);
-	if (mysql_numrows($result_currect)!=0)
+	$result_currect = mysqli_query($sSql,$allDateBase);
+	if (mysqli_num_rows($result_currect)!=0)
 	{
 ?>
 <table width="160" border="1" align="left" class="b">
 <?php
-		while($row=mysql_fetch_array($result_currect))
+		while($row=mysqli_fetch_array($result_currect))
 		{
 		//echo "0001".$row["T_CHILD"];
 ?>
@@ -572,8 +572,8 @@ function ShowOrerList()
 				include("dbCfg.php");
 				$sSql="select * from pru where T_ID='".$strIDItem[0]."'";
 				//echo $sSql;
-				$result = mysql_query($sSql,$allDateBase);
-				$rstTemp=mysql_fetch_array($result);
+				$result = mysqli_query($sSql,$allDateBase);
+				$rstTemp=mysqli_fetch_array($result);
 				if ($rstTemp["Version"]==1)
 				{
 					$strTemppp=explode("-", $strIDItem[0]);
@@ -618,8 +618,8 @@ function ShowLeaveMsgOnItem($pru_id)
 		  $sSql="select * from customerleavemsg where T_PRU_ID='$pru_id' and T_URL='".GetCurrentWebHost()."' order by T_TIME ASC ";
 		  //echo "<br>$sSql<br>";
 		  include("dbCfg.php");
-		  $result = mysql_query($sSql, $pingoDateBase);
-		  while($row=mysql_fetch_array($result))
+		  $result = mysqli_query($sSql, $pingoDateBase);
+		  while($row=mysqli_fetch_array($result))
 		  {
 		  ?>
 		  <tr <?php

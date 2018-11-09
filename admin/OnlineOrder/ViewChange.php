@@ -98,7 +98,7 @@ form input{
 $OnlineOrder = new OnlineOrder;
 
 $result = $OnlineOrder->GetOnlineOrderByID($_GET["id"]);
-$row=mysql_fetch_array($result);
+$row=mysqli_fetch_array($result);
 ?>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
@@ -170,7 +170,7 @@ $row=mysql_fetch_array($result);
 			$strItemCoolieSI=substr($strItemList[$i], strlen($strIDItem[0])+1,strlen($strItemList[$i]));
 			$SQL = new SQL;
 			$result_currect = $SQL->Query("select * from pru where T_ID='".$strIDItem[0]."'");
-			$row=mysql_fetch_array($result_currect);
+			$row=mysqli_fetch_array($result_currect);
 			if (strlen($shizi)==0)
 				$shizi = $row["T_PRICE"];
 			else
@@ -179,7 +179,7 @@ $row=mysql_fetch_array($result);
 			
 			$SQL = new SQL;
             $resultTmp = $SQL->Query("select * from registercustomer  where T_ID='".$row["T_USER_ID"]."'");
-			$rowUser=mysql_fetch_array($resultTmp);
+			$rowUser=mysqli_fetch_array($resultTmp);
 	?>
         <li <?php if ($i == $nCount-1) echo "id='bottom'";?>><span class="picture"><a href="../../?p=ItemDetail&T_ID=<?php echo $row["T_ID"];?>" target="_blank"><img src="../../<?php echo GetItemPathInfo($row["T_ID"], $row["Version"])."head.jpg";?>"/></a></span><span class="actor"><?php echo $rowUser["T_CUSTOMER_NAME"];?></span><span class="size"><?php echo $row["T_SIZE"];?></span><span class="ID"><a href="../../?p=ItemDetail&T_ID=<?php echo $row["T_ID"];?>" target="_blank"><?php echo $row["T_ID"];?></a></span><span class="price">￥<?php echo $row["T_PRICE"]+0;?></span></li>
         <?php

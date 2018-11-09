@@ -39,7 +39,7 @@ function CreateNewOder()
 		$SQL = new SQL;
 		$result = $SQL->Query("select * from OFFER_ALL_USER where T_DATE='$timeStr' and T_SER='$rodemStr';");
 	}
-	while((mysql_fetch_array($result)));
+	while((mysqli_fetch_array($result)));
 	
 	$orderSub=trim($_POST["cSubID"]);
 	$userName=$_POST["cName"];
@@ -249,7 +249,7 @@ function UserSignIn()
 	$sSql="select * from admin where T_NAME='$UserName' and T_PWD='$UserPwd'";
 	$errorInfo=$sSql;
 	$result = $SQL->Query($sSql);
-	if ($row=mysql_fetch_array($result))
+	if ($row=mysqli_fetch_array($result))
 	{
 		WriteUserSignInNameToCookie($UserName);
 		SuccessPhpErrorPage("Login in sucessful. its redirect now. hold on please. ^_^", true, "","http://www.paiple.com/admin/Order/index.php");
@@ -355,7 +355,7 @@ function GetOrderRecordHistoryNumber($itemList, $memo, $IsShowPayment, $IsShowPr
 		$SQL = new SQL;
 		$result = $SQL->Query("select * from t_order_record_his where T_ID='$recordNum'; ",$pingoDateBase);
 		
-		$nPruNum = mysql_numrows($result);
+		$nPruNum = mysqli_num_rows($result);
 		if ($nPruNum==0)
 		{
 			$sSql="INSERT INTO t_order_record_his (T_ID, T_ITEM_LIST, T_MEMO, T_SHOW_PAYMENT, T_ADD_PRICE_INFO) VALUES('$recordNum', '$itemList', '$memo', $IsNShowPayment, $IsNShowPriceInfo)";

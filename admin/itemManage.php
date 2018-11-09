@@ -142,7 +142,7 @@ body,td,th {
 	$result = $SQL->Query($sSql);
 	
 	$nIndex=0;
-	while(($row=mysql_fetch_array($result)))
+	while(($row=mysqli_fetch_array($result)))
 	{
 		if ($itemStatus==3)
 		{

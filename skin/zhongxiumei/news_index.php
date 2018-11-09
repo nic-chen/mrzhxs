@@ -8,7 +8,7 @@
 			$selected = "id='current'";
             $artical = new article;
 			$result = $artical->GetArticleModelList();
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				if ($row["T_STATUS"]!=0)
 					continue;
@@ -37,7 +37,7 @@
 				$current_page = 1;
 				
 			$resultTmp = $artical->GetArticleList($_GET["model"], ($current_page-1)*$nItemEachPage, $nItemEachPage, true);
-			while($row=mysql_fetch_array($resultTmp))
+			while($row=mysqli_fetch_array($resultTmp))
 			{
 			?>
 				<li><a href="?p=news&model=<?php echo $_GET["model"];?>&text=<?php echo $row["T_ID"];?>"><?php echo $row["T_TITLE"];?> <span class="hyperlink">点击查看</span></a></li>
@@ -52,7 +52,7 @@
 		else if (""!="text")
 		{
 			$resultTmp = $artical->GetArticle($_GET["text"], 0, 38);
-			if ($row=mysql_fetch_array($resultTmp))
+			if ($row=mysqli_fetch_array($resultTmp))
 			{
 				?>
 				<ul class="jianjie_frame">

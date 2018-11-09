@@ -34,7 +34,7 @@ $strCreateDate=$_GET["DATE"];
 $strCreateSer=$_GET["SER"];
 
 $result = $SQL->Query("select * from OFFER_ALL_USER where T_DATE='$strCreateDate' and T_SER='$strCreateSer';");
-$rowOrder=mysql_fetch_array($result);
+$rowOrder=mysqli_fetch_array($result);
 if (!$rowOrder)
 	$rowOrder=array();
 
@@ -219,7 +219,7 @@ thanks and greeting from ".GetWebNikiName().".");
   	
 	
 	$result = $SQL->Query("select * from t_web_conn where T_URL='".GetCurrentWebHost()."'",$pingoDateBase);
-	if ($row=mysql_fetch_array($result))
+	if ($row=mysqli_fetch_array($result))
 	{
 		echo $row["T_PAYPAL_ACCOUNT"];
 	}
@@ -312,7 +312,7 @@ function GetItemInfoByIndex($itemList, $IndexNum, &$id, &$sizeInfo, &$otherInfo)
 					$sSql="select * from pru where T_ID='".$id."';";
 				    
 				    $result = $SQL->Query($sSql);
-				    $row=mysql_fetch_array($result);
+				    $row=mysqli_fetch_array($result);
 					
 					if (!$row)
 						$pruSellPrice="";
@@ -367,7 +367,7 @@ function GetItemInfoByIndex($itemList, $IndexNum, &$id, &$sizeInfo, &$otherInfo)
 						$sSql="select * from pru where T_ID='".$id."'";
 						
 						$result = $SQL->Query($sSql);
-						$row=mysql_fetch_array($result);
+						$row=mysqli_fetch_array($result);
 						
 						if (!$row)
 						{

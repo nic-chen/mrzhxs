@@ -54,7 +54,7 @@ class article
 			$addSql = "and ".$this->ifAllSql;
 			
 		$result = $this->SQL->Query("select count(*) as nTotal from article where T_MODEL_ID=$id $addSql order by T_CREATE_TIME DESC");
-		$row = mysql_fetch_array($result);
+		$row = mysqli_fetch_array($result);
 		return $row["nTotal"];
 	}
 	

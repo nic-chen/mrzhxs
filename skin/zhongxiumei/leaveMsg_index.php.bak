@@ -8,7 +8,7 @@
 			$selected = "id='current'";
             $artical = new article;
 			$result = $artical->GetArticleModelList();
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				if ($row["T_STATUS"]!=0)
 					continue;

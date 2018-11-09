@@ -12,14 +12,14 @@
 				$nItemEachRow = 3;
 				$nRow = 4;
 				$result = $customer->GetCustomerList(($page-1)*$nItemEachRow*$nRow, $nItemEachRow*$nRow, "");
-				while($actor=mysql_fetch_array($result))
+				while($actor=mysqli_fetch_array($result))
 				{
 					if ($actor["T_STATUS"]!=0 || date("Y-m-d", strtotime($actor["T_END_TIME"]))<date("Y-m-d"))
 						continue;
 					if ($index % $nItemEachRow==0)
 						echo "<div style=\"overflow:hidden\">";
 					$resultTmp = $SQL->Query("select count(*) as nTotal from pru where T_USER_ID='".$actor["T_ID"]."'");
-					$rowTmp = mysql_fetch_array($resultTmp);
+					$rowTmp = mysqli_fetch_array($resultTmp);
 					$pruTotal = $rowTmp["nTotal"];
                 ?>
                 <ul class="actor_block">

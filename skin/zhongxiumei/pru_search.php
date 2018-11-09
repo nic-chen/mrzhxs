@@ -41,7 +41,7 @@
 			$index = 0;
 			$Customer = new Customer;
 			$totalPru = 0;
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				$totalPru++;
 				$index=$index%5;
@@ -56,7 +56,7 @@
 				
 				$SQL2 = new SQL;
 				$result2 = $SQL2->Query("select T_CUSTOMER_NAME from registercustomer where ".$row["T_USER_ID"]." = registercustomer.T_ID ");
-				$row2 = mysql_fetch_array($result2)
+				$row2 = mysqli_fetch_array($result2)
 			?>
 				<ul class="index_pru">
 					<li id="picture"><a href="<?php echo $url;?>"><img src="<?php echo GetItemPathInfo($row["T_ID"], $row["Version"])."head.jpg";?>"/></a></li>
@@ -87,7 +87,7 @@
 			
 	$url="?classs=".$_GET["classs"]."&area=".$_GET["area"]."&name=".$_GET["name"]."&p=product&type=search&price=".$_GET["price"]."&runge_price=".$_GET["runge_price"]."&meixie_huiyuan=".$_GET["meixie_huiyuan"]."&shuxie_huiyuan=".$_GET["shuxie_huiyuan"]."&search=".$_GET["search"]."&page="; 
 	$result_currect = $SQL->Query("select count(*) as nTotal from pru ".$sSql);
-	if ($row=mysql_fetch_array($result_currect))
+	if ($row=mysqli_fetch_array($result_currect))
 		$nPruNum = $row["nTotal"];
 	else
 		$nPruNum = 0;

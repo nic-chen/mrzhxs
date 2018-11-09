@@ -24,12 +24,12 @@
 			//echo "select * from pru ".$sSql." limit ".(($current_page-1)*$nItemEachPage).", $nItemEachPage";
 			$index = 0;
 			$preUserID = "";
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				if ($preUserID != $row["T_USER_ID"])
 				{
 					$resultTmp = $SQL->Query("select * from registercustomer  where T_ID='".$row["T_USER_ID"]."'");
-					$rowUser=mysql_fetch_array($resultTmp);
+					$rowUser=mysqli_fetch_array($resultTmp);
 					$preUserID = $row["T_USER_ID"];
 				}
 				if (!$rowUser)

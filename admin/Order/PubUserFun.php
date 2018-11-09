@@ -55,11 +55,11 @@ function GetUserDetailInfo($userName, & $detailInfo)
 			$sSql="select * from admin where T_NAME='".$webURL."'; ";
 		else
 			$sSql="select * from admin where T_URL='".$webURL."'; ";
-		$result = mysql_query($sSql, $pingoDateBase);
+		$result = mysqli_query($sSql, $pingoDateBase);
 		
-		if (mysql_num_rows($result)==1)
+		if (mysqli_num_rows($result)==1)
 		{
-			$row=mysql_fetch_array($result);
+			$row=mysqli_fetch_array($result);
 			$detailInfo[0]=$row["T_PWD"];
 			$detailInfo[1]=$row["T_DENG_JI"];
 			$detailInfo[2]=$row["T_MEMO"];
@@ -108,7 +108,7 @@ function SetUserDetailInfo($userID, &$detailInfo)
 	{
 		include(APPROOT."dbCfg.php");
 		$sSql="update admin set T_PWD='$detailInfo[0]', T_DENG_JI=$detailInfo[1], T_MEMO='$detailInfo[2]', T_QIAN_MING='$detailInfo[3]', T_PIC='$detailInfo[4]', T_USER_MAIL_ADD='$detailInfo[5]', T_USER_MAIL_PWD='$detailInfo[6]', T_USER_WEBSITE='$detailInfo[7]', T_USER_MENU='$detailInfo[8]', T_USER_NI_CHENG='$detailInfo[9]', T_YOUJU_IP_ADD='$detailInfo[11]', T_YOUJU_DUANKOU='$detailInfo[12]',T_NAME='$detailInfo[13]' where T_ID='".$userID."'; ";
-		$result = mysql_query($sSql, $pingoDateBase);
+		$result = mysqli_query($sSql, $pingoDateBase);
 		return true;
 	}
 }

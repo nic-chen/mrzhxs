@@ -277,13 +277,13 @@ function GetOrderRecordHistoryNumber($itemList, $memo, $IsShowPayment, $IsShowPr
 		$recordNum=sprintf("%s%03d", $timeStr, $seed);
 		
 		include("dbCfg.php");
-		$result = mysql_query("select * from t_order_record_his where T_ID='$recordNum'; ",$pingoDateBase);
+		$result = mysqli_query("select * from t_order_record_his where T_ID='$recordNum'; ",$pingoDateBase);
 		
-		$nPruNum = mysql_numrows($result);
+		$nPruNum = mysqli_num_rows($result);
 		if ($nPruNum==0)
 		{
 			$sSql="INSERT INTO t_order_record_his (T_ID, T_ITEM_LIST, T_MEMO, T_SHOW_PAYMENT, T_ADD_PRICE_INFO) VALUES('$recordNum', '$itemList', '$memo', $IsNShowPayment, $IsNShowPriceInfo)";
-			mysql_query($sSql, $pingoDateBase);
+			mysqli_query($sSql, $pingoDateBase);
 			//echo $sSql."<br>";
 			break;
 		}
@@ -332,7 +332,7 @@ function CustomerSubOrder($cMail, $cCountry, $mMsg, $OrderInfo, $subject)
 	$customer = new Customer;
 	$result = $customer->GetCustomerByHeadURL($subWebName);
 	
-	if ($rowCustomer=mysql_fetch_array($result))
+	if ($rowCustomer=mysqli_fetch_array($result))
 	{
 		$strItemList=explode("=====",$OrderInfo);
 		$nCount = count($strItemList);
@@ -471,7 +471,7 @@ elseif ($COM_ID=="0014")//customer leave message!
 			$customer = new Customer;
 			$result = $customer->GetCustomerByHeadURL($subWebName);
 			
-			if ($rowCustomer=mysql_fetch_array($result) && strpos($_POST["msg"], "<") === false &&  strpos($customerMsg, ".com") === false)
+			if ($rowCustomer=mysqli_fetch_array($result) && strpos($_POST["msg"], "<") === false &&  strpos($customerMsg, ".com") === false)
 			{
 				$BuyLog->AddBuyLog($pruID, 0, $rowCustomer["T_ID"]);
 			}

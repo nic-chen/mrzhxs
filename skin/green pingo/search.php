@@ -146,8 +146,8 @@
 			$sSql=$sSql." order by T_HOT DESC, T_ID DESC";
 	}
 	//echo "select * from pru ".$sSql." LIMIT ".(($current_page-1)*$nItemEachPage).", $nItemEachPage";
-	$result_currect = mysql_query("select * from pru ".$sSql." LIMIT ".(($current_page-1)*$nItemEachPage).", $nItemEachPage",$allDateBase);
-	$nPruNum = mysql_numrows($result_currect);
+	$result_currect = mysqli_query("select * from pru ".$sSql." LIMIT ".(($current_page-1)*$nItemEachPage).", $nItemEachPage",$allDateBase);
+	$nPruNum = mysqli_num_rows($result_currect);
 	
 	$nItemEachRow=5;			//item total in row
 	$nRow=(int)($nPruNum/$nItemEachRow);	//full row total
@@ -160,7 +160,7 @@
     	<?php
         for ($j=0; $j<$nItemEachRow; $j++)
 		{
-			$row=mysql_fetch_array($result_currect);
+			$row=mysqli_fetch_array($result_currect);
 			if ($row)
 			{
 				?>
@@ -181,8 +181,8 @@
 			include("dbCfg.php");
 			//$sSql = "select count(*) as nTotal from pru where T_STATUS=0 ";
 			//echo $sSql="select count(*) as nTotal from pru ".$sSql;
-			$result_currect = mysql_query("select count(*) as nTotal from pru ".$sSql,$allDateBase);
-			if ($row=mysql_fetch_array($result_currect))
+			$result_currect = mysqli_query("select count(*) as nTotal from pru ".$sSql,$allDateBase);
+			if ($row=mysqli_fetch_array($result_currect))
 				$nPruNum = $row["nTotal"];
 			else
 				$nPruNum = 0;

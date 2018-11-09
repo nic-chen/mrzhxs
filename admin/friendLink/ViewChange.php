@@ -41,7 +41,7 @@ $FrendLink = new FrendLink;
 include("top_menu.php"); 
 
 $result = $FrendLink->GetFrendLinkByID($_GET["ID"]);
-$row=mysql_fetch_array($result);
+$row=mysqli_fetch_array($result);
 ?>
 
 <form action="updateData.php?COM_ID=1009" method="post" enctype="multipart/form-data">

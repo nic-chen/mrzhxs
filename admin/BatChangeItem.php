@@ -369,16 +369,16 @@ span {
   if (strlen($_GET["Submit"])>0)
   {
 
-	$result_currect = mysql_query("select count(*) as nTotal from pru ".$sSql);
-	$row=mysql_fetch_array($result_currect);
+	$result_currect = mysqli_query("select count(*) as nTotal from pru ".$sSql);
+	$row=mysqli_fetch_array($result_currect);
 	$nItemTotal=$row["nTotal"];
 	
-	$result_currect = mysql_query("select * from pru ".$sSql." LIMIT ".(($current_page-1)*$nItemEachPage).", $nItemEachPage");
+	$result_currect = mysqli_query("select * from pru ".$sSql." LIMIT ".(($current_page-1)*$nItemEachPage).", $nItemEachPage");
 //	echo "["."select * from pru ".$sSql." LIMIT ".(($current_page-1)*$nItemEachPage)."]";
-	$nThisPageItemTotal = mysql_numrows($result_currect);
+	$nThisPageItemTotal = mysqli_num_rows($result_currect);
 	
 	$nIndex=-1;
-	while($row=mysql_fetch_array($result_currect))
+	while($row=mysqli_fetch_array($result_currect))
 	{
 		$nIndex++;
   ?>

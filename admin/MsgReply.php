@@ -56,7 +56,7 @@ if ($thisPage=="MsgReply.php")
 	$msg_id=$_GET["ID"];
 	$result = $SQL->Query("select * from customerleavemsg where T_INDEX='$msg_id' ");
 	
-	while(($row=mysql_fetch_array($result)))
+	while(($row=mysqli_fetch_array($result)))
 	{
   ?>
   <form action="updateData.php?COM_ID=1010" method="post">

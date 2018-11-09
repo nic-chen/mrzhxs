@@ -23,7 +23,7 @@ else
 $ID=$_GET["ID"];
 
 $result = $Customer->GetCustomerModel($ID);
-$row=mysql_fetch_array($result);
+$row=mysqli_fetch_array($result);
 ?>
 <form action="updateData.php?COM_ID=1008" method="post" style="margin:0px; padding:0px; border:solid #006699 1PX;">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">

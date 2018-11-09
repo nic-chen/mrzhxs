@@ -42,9 +42,9 @@ include("manageOrderDH.php");
 				$sSql=$sSql." AND T_STEP=5 ";
 			//
 			include(APPROOT."/dbCfg.php");
-			$result = mysql_query($sSql."order by T_DATE;",$pingoDateBase);
+			$result = mysqli_query($sSql."order by T_DATE;",$pingoDateBase);
 			
-			while(($row=mysql_fetch_array($result)))
+			while(($row=mysqli_fetch_array($result)))
 			{
 				echo $row["T_MAIL"]."<br>";
 			}

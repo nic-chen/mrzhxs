@@ -7,7 +7,7 @@ require_once('settings.php');
 function SetItemAvaliable($pru_id)
 {
 	include(APPROOT."dbCfg.php");
-	$result = mysql_query("update pru set T_STATUS=0 where T_ID='$pru_id'",$allDateBase);
+	$result = mysqli_query("update pru set T_STATUS=0 where T_ID='$pru_id'",$allDateBase);
 	return true;
 }
 
@@ -17,7 +17,7 @@ function SetItemAvaliable($pru_id)
 function SetItemUnavaliable($pru_id)
 {
 	include(APPROOT."dbCfg.php");
-	$result = mysql_query("update pru set T_STATUS=2 where T_ID='$pru_id'",$allDateBase);
+	$result = mysqli_query("update pru set T_STATUS=2 where T_ID='$pru_id'",$allDateBase);
 	echo "update $pru_id dont avlialbe<br>";
 	//echo "update pru set T_STATUS=1 where T_ID='$pru_id'";
 	return true;
@@ -29,12 +29,12 @@ function SetItemUnavaliable($pru_id)
 function DeleteItem($pru_id)
 {
 	include(APPROOT."dbCfg.php");
-	$result = mysql_query("select * from pru where T_ID='$pru_id'",$allDateBase);
-	if ($row=mysql_fetch_array($result))
+	$result = mysqli_query("select * from pru where T_ID='$pru_id'",$allDateBase);
+	if ($row=mysqli_fetch_array($result))
 	{
 		deldir(GetItemPathInfo($row["T_ID"], $row["Version"]));
 		//die(GetItemPathInfo($row["T_ID"], $row["Version"]));
-		mysql_query("delete from pru where T_ID='$pru_id'",$allDateBase);
+		mysqli_query("delete from pru where T_ID='$pru_id'",$allDateBase);
 		echo "Delete item [$pru_id] successful!<br>";
 	}
 	else
@@ -64,7 +64,7 @@ function SetItemDetailInfo($pru_id, $pru_size, $pru_child, $pru_class, $pru_sex,
 	T_XIJIE_PIC = '$pru_detail_pic',
 	T_JINHUO_PRICE = $pru_buy_price,
 	T_DETAIL_HAVE = '$pru_is_have_large' WHERE T_ID = '$pru_id' LIMIT 1 ;";
-	$result = mysql_query($sSql,$allDateBase);
+	$result = mysqli_query($sSql,$allDateBase);
 	
 	//echo $sSql;
 	return true;
@@ -92,8 +92,8 @@ function GetItemPathInfo($pru_id, $pru_version=NULL)
 	{
 		include(APPROOT."dbCfg.php");
 		$sSql="select * from pru where T_ID='$pru_id'";
-		$result = mysql_query($sSql,$allDateBase);
-		if ($row=mysql_fetch_array($result))
+		$result = mysqli_query($sSql,$allDateBase);
+		if ($row=mysqli_fetch_array($result))
 		{
 			if ($row["Version"]==1)
 			{
@@ -119,7 +119,7 @@ function SetItemPictureList($pru_id, $pru_picture_list)
 	
 	include(APPROOT."dbCfg.php");
 	$sSql="UPDATE pru SET T_DETAIL_PICTURE = '$pru_picture_list' WHERE T_ID = '$pru_id' ;";
-	$result = mysql_query($sSql,$allDateBase);
+	$result = mysqli_query($sSql,$allDateBase);
 	
 	//echo $sSql;
 	return true;

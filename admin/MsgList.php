@@ -82,14 +82,14 @@ include("MessageTopBar.php");
 //die("select count(*) as nTotal ".$sSql."<br>");	
 
 	$nItemTotal=0;
-	if ($row=mysql_fetch_array($result))
+	if ($row=mysqli_fetch_array($result))
 		$nItemTotal=$row["nTotal"];
 	else
 		$nItemTotal=0;
 
 	$result = $SQL->Query("select * ".$sSql." LIMIT ".(($cur_page-1)*30).", 30");
 //echo "<br>"."select * ".$sSql." LIMIT ".(($cur_page-1)*30).", 30"."<br>";
-	while(($row=mysql_fetch_array($result)))
+	while(($row=mysqli_fetch_array($result)))
 	{
   ?>
   <tr bgcolor="<?php if ($row["T_IS_REPLY"]) echo "#C2DC71"; else  echo "#FFFF99";?>" onMouseOver="this.bgColor='#CDD4BD';" onMouseOut="this.bgColor='<?php if ($row["T_IS_REPLY"]) echo "#C2DC71"; else  echo "#FFFF99"; ?>'">

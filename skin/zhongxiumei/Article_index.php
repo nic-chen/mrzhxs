@@ -8,7 +8,7 @@
 			$selected = "id='current'";
             $artical = new article;
 			$result = $artical->GetArticleModelList();
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				if ($row["T_STATUS"]!=0)
 					continue;
@@ -29,7 +29,7 @@
 		$id = $_GET["ID"];
 		$sSql="select * from t_top_nav where T_ID='$id' and T_URL='".GetCurrentWebHost()."' order by T_INDEX ASC, T_NAME";
 		$navResult=$SQL->Query($sSql);
-		if ($row=mysql_fetch_array($navResult))
+		if ($row=mysqli_fetch_array($navResult))
 		{
 		?>
 		<ul class="jianjie_frame">

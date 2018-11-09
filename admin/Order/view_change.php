@@ -60,7 +60,7 @@ $strStep=$_GET["STEP"];
 $SQL = new SQL;
 
 $result = $SQL->Query("select * from OFFER_ALL_USER where T_DATE='$strCreateDate' and T_SER='$strCreateSer' and T_URL='".GetCurrentWebHost()."';");
-$row=mysql_fetch_array($result);
+$row=mysqli_fetch_array($result);
 if (!$row)
 	die("dont find this order DATE=[$strCreateDate] SER=[$strCreateSer]");
 
@@ -69,7 +69,7 @@ $cur_admin->GetAdminSignInfo($adminName, $adminPwd);
 
 $result_admin = $SQL->Query("select * from admin where T_NAME='".$adminName."' and T_URL='".GetCurrentWebHost()."';");
 //echo "select * from admin where T_NAME='".GetAdminSignInName()."' and T_URL='".GetCurrentWebHost()."';"."<br>";
-$rowAdmin=mysql_fetch_array($result_admin);
+$rowAdmin=mysqli_fetch_array($result_admin);
 ?>
 <table width="700" height="585" border="0" align="left" cellpadding="0" cellspacing="0" bordercolorlight="#FFFFFF" bordercolordark="D9D9D9">
   <tr>

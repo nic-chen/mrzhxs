@@ -30,12 +30,12 @@ $articleID=$_GET["ID"];
     <td width="80%" height="25"><label>
     <?php
     $result = $artical->GetArticle($articleID);
-	$row=mysql_fetch_array($result);
+	$row=mysqli_fetch_array($result);
 	?>
     <select name="model" id="model">
 		<?php
 		$resultModelList = $artical->GetArticleModelList();
-		while($rowModelList=mysql_fetch_array($resultModelList))
+		while($rowModelList=mysqli_fetch_array($resultModelList))
 		{
 		?>
         <option value="<?php echo $rowModelList["T_ID"];?>" <?php if ($rowModelList["T_ID"]==$row["T_MODEL_ID"]) echo "selected=\"selected\"";?>><?php echo $rowModelList["T_MODELNAME"];?></option>

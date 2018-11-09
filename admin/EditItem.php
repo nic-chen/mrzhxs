@@ -50,7 +50,7 @@ table.line{
 			  
 			  $SQL=new SQL;
 			  $result = $SQL->Query("select * from pru where T_ID='$pru_id'");
-			  $row=mysql_fetch_array($result);
+			  $row=mysqli_fetch_array($result);
 ?>
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>

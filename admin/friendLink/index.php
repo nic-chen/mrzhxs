@@ -46,7 +46,7 @@ form input{
   <?PHP
   $FrendLink = new FrendLink;
   $result = $FrendLink->GetFrendLinkList();
-  while($row=mysql_fetch_array($result))
+  while($row=mysqli_fetch_array($result))
   {
   ?>
   <tr>

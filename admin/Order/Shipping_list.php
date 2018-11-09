@@ -50,11 +50,11 @@ include("Shpping_list_Bar.php");
   
   $SQL=new SQL;
   $result = $SQL->Query("select * from shipping_list where T_URL='".GetCurrentWebHost()."' order by $orderByDatabase DESC limit  ".(($cur_page-1)*15).", 15;");
-  $nShippingListNum = mysql_numrows($result);
+  $nShippingListNum = mysqli_num_rows($result);
   if ($nShippingListNum>0)
   {
   	$nItemIndex=0;
-  	while($row=mysql_fetch_array($result))
+  	while($row=mysqli_fetch_array($result))
   	{
 		$nItemIndex++;
   ?>
@@ -109,8 +109,8 @@ include("Shpping_list_Bar.php");
    </tr>
    <tr height="20">
     <td height="20" colspan="3"><?php 
-		$result = mysql_query("select * from shipping_list where T_URL='".GetCurrentWebHost()."';",$allDateBase);
-  		$nShippingListNum = mysql_numrows($result);
+		$result = mysqli_query("select * from shipping_list where T_URL='".GetCurrentWebHost()."';",$allDateBase);
+  		$nShippingListNum = mysqli_num_rows($result);
 		
 		if ($nShippingListNum % 15 == 0)
 			$pages = $nShippingListNum/15;

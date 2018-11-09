@@ -8,9 +8,9 @@
                 $result = $SQL->Query($sSql." limit ".($current_page-1)*$nItemEachPage.", $nItemEachPage");
 				//echo $sSql." limit ".($current_page-1)*$nItemEachPage.", $nItemEachPage";
 				$resultTotal = $SQL->Query($sSql);
-                $nTotal = mysql_numrows($resultTotal);
+                $nTotal = mysqli_num_rows($resultTotal);
                 $index = 0;
-                while($row=mysql_fetch_array($result))
+                while($row=mysqli_fetch_array($result))
                 {
                     if (strlen($row["T_USER_ID"])==0)
                         continue;
@@ -21,9 +21,9 @@
                         
                     $Customer = new Customer;
                     $resultActor = $Customer->GetCustomerByID($row["T_USER_ID"]);
-                    $actor = mysql_fetch_array($resultActor);
+                    $actor = mysqli_fetch_array($resultActor);
 					$resultTmp = $SQL->Query("select count(*) as nTotal from pru where T_USER_ID='".$actor["T_ID"]."'");
-					$rowTmp = mysql_fetch_array($resultTmp);
+					$rowTmp = mysqli_fetch_array($resultTmp);
 					$pruTotal = $rowTmp["nTotal"];
                 ?>
                 <ul class="actor_block">

@@ -33,7 +33,7 @@ $sSql="select * from t_top_nav where T_URL='".GetCurrentWebHost()."' order by T_
 $SQL=new SQL;
 $navResult=$SQL->Query($sSql);
 $nIndex=-1;
-while($row=mysql_fetch_array($navResult))
+while($row=mysqli_fetch_array($navResult))
 {
 	$nIndex++;
 	$strPtype="";

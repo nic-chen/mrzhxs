@@ -105,7 +105,7 @@ if ($adminName=="root")
 $SQL=new SQL;
 
 $result_admin = $SQL->Query("select * from admin where T_NAME='".$adminName."' and T_URL='".GetCurrentWebHost()."';");
-$rowAdmin=mysql_fetch_array($result_admin);
+$rowAdmin=mysqli_fetch_array($result_admin);
 ?>
 <form action="Order/item_list.php" name="ItemList" id="ItemList" method="post" target="_blank">
 <div style=" display: none;"><textarea name="userAddress" ><?php echo $row["T_CUS_ADDRESS"];?></textarea>

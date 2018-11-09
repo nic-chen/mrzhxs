@@ -1,14 +1,11 @@
 <?php
 
-$dateBaseName="all";
-$dateBaseUser="all";
-$dateBasePwd="all";
+$dateBaseName="paipleco_mrzhxs";
+$dateBaseUser="paipleco_mrzhxs";
+$dateBasePwd="zfm198214";
 
-$pingoDateBase = mysql_connect("localhost", $dateBaseName, $dateBasePwd);
-mysql_select_db($dateBaseName,$pingoDateBase);
-$allDateBase = mysql_connect("localhost", $dateBaseName, $dateBasePwd);
-mysql_select_db($dateBaseName,$allDateBase);
+$allDateBase = mysqli_connect("localhost", $dateBaseUser, $dateBasePwd, $dateBaseName);
 
-mysql_query("SET NAMES UTF8");
+mysqli_query("SET NAMES UTF8");
 
 ?>

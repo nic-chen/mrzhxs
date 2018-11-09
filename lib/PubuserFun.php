@@ -68,7 +68,7 @@ class Customer
 		
 		$result = $this->SQL->Query($sSql);
 		
-		if (mysql_num_rows($result)==0)
+		if (mysqli_num_rows($result)==0)
 			return false;//dont been registered.
 		else
 			return true;//has been registered.
@@ -83,7 +83,7 @@ class Customer
 		
 		$result = $this->SQL->Query($sSql);
 		
-		if (mysql_num_rows($result)==0)
+		if (mysqli_num_rows($result)==0)
 		{
 			$this->errorString="The mail and login password its not complete correct!";
 			return false;
@@ -158,7 +158,7 @@ class Customer
 			}
 			
 			$sSql="update registercustomer  set T_PWD='$newPwd' where T_MAIL='$customerMail'  and T_URL='".GetCurrentWebHost()."';";
-			$result = mysql_query($sSql, $pingoDateBase);
+			$result = mysqli_query($sSql, $pingoDateBase);
 			
 			if ($this->SQL->Query($sSql))
 				return true;
@@ -184,9 +184,9 @@ class Customer
 		
 		$result = $this->SQL->Query($sSql);
 		
-		if (mysql_num_rows($result)==1)
+		if (mysqli_num_rows($result)==1)
 		{
-			$row=mysql_fetch_array($result);
+			$row=mysqli_fetch_array($result);
 			$userPwd=$row["T_PWD"];	//û
 			
 			$rootDetailInfo=array();
@@ -211,9 +211,9 @@ class Customer
 		
 		$result = $this->SQL->Query($sSql);
 		
-		if (mysql_num_rows($result)==1)
+		if (mysqli_num_rows($result)==1)
 		{
-			$row=mysql_fetch_array($result);
+			$row=mysqli_fetch_array($result);
 			$userPwd=$row["T_PWD"];
 			
 			$rootDetailInfo[]=array();
@@ -305,7 +305,7 @@ class Customer
 	function GetCustomerAmount($type)
 	{
 		$result = $this->SQL->Query("select count(*) as nTotal from registercustomer where T_TYPE='$type'");
-		if ($row=mysql_fetch_array($result))
+		if ($row=mysqli_fetch_array($result))
 			return $row["nTotal"];
 		else
 			return 0;
@@ -355,7 +355,7 @@ class Customer
 				$province, $telPhone, $mobilPhone, $rungePrice, $meixieType, $shuxieType, $status, $endTime, $adFirst, $pruType)
 	{
 		$result = $this->SQL->Query("select * from registercustomer  where T_ID<>'$id' and T_HEAD_URL='$headURL'");
-		if (mysql_numrows($result) > 0)
+		if (mysqli_num_rows($result) > 0)
 		{
 			$this->errorString=CUSTOMER_DETAIL_UPDATE;
 			return false;
@@ -378,7 +378,7 @@ class Customer
 	function SetModelContect($customerID, $modelID, $text)
 	{
 		$result = $this->GetModelContect($customerID, $modelID);
-		$nPruNum=mysql_numrows($result);
+		$nPruNum=mysqli_num_rows($result);
 		//die( "$nPruNum<br>" );
 		if ($nPruNum==0)
 			return $this->SQL->Query("INSERT INTO `customermodeltext` ( `T_MODEL_ID` , `T_CUSTOMER_ID` , `T_TEXT`, T_CREATE_TIME ) VALUES ($modelID, '$customerID', '$text', now());");

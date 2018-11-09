@@ -51,8 +51,8 @@ include("manageOrderDH.php");
 			
 			$SQL = new SQL;
 			$result = $SQL->Query("select * from OFFER_ALL_USER where T_URL='".GetCurrentWebHost()."' order by T_CREATE_TIME DESC, T_DATE DESC, T_SER DESC limit ".(($cur_page-1)*15).", 15;");
-			$nPruNum=mysql_numrows($result);
-			while(($row=mysql_fetch_array($result)))
+			$nPruNum=mysqli_num_rows($result);
+			while(($row=mysqli_fetch_array($result)))
 			{
 		  ?>
         <tr align="left" bgcolor="<?php
@@ -121,7 +121,7 @@ include("manageOrderDH.php");
 		include(APPROOT."/dbCfg.php");
 		$result = $SQL->Query("select count(*) as nTotal from OFFER_ALL_USER where T_URL='".GetCurrentWebHost()."' order by T_DATE DESC;");
 		$nItemTotal=0;
-		if ($row=mysql_fetch_array($result))
+		if ($row=mysqli_fetch_array($result))
 			$nItemTotal=$row["nTotal"];
 		else
 			$nItemTotal=0;

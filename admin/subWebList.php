@@ -70,9 +70,9 @@ if ($thisPage=="subWebList.php")
 	
 	$sSql="select * from t_web_conn";
 	$result = $SQL->Query($sSql);
-	$nItemTotal = mysql_numrows($result);
+	$nItemTotal = mysqli_num_rows($result);
 
-	while(($row=mysql_fetch_array($result)))
+	while(($row=mysqli_fetch_array($result)))
 	{
   ?>
   <tr bgcolor="#C2DC71" onMouseOver="this.bgColor='#CDD4BD';" onMouseOut="this.bgColor='#C2DC71'">

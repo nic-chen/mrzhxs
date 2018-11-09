@@ -450,7 +450,7 @@ else
 	include($type."_top_menu.php");
 
 $result = $Customer->GetCustomerDetail($_GET["ID"], $_GET["mail"]);
-$row=mysql_fetch_array($result);
+$row=mysqli_fetch_array($result);
 ?>
 
 <form action="updateData.php?COM_ID=1009" method="post" style="margin:0px; padding:0px;border:solid #006699 1PX; margin-top:-1px; padding-top:20px;" id="baseInfo"  enctype="multipart/form-data">
@@ -612,7 +612,7 @@ $oFCKeditor->Create() ;
   <?php
   $modelList = $Customer->GetCustomerModelList($type);
   $index = 0 ;
-  while($rowModel=mysql_fetch_array($modelList) )
+  while($rowModel=mysqli_fetch_array($modelList) )
   {
   	if ($rowModel["T_STATUS"]!=0 || $rowModel["T_HAVE_SUB_ARTICLE"]==1)
 		continue;
@@ -625,7 +625,7 @@ $oFCKeditor->Create() ;
 	$oFCKeditor = new FCKeditor('model'.$index) ;
 	$oFCKeditor->BasePath	= "../../lib/fckeditor/";
 	$resultTmp = $Customer->GetModelContect($row["T_ID"], $rowModel["T_ID"]);
-	if ($rowText=mysql_fetch_array($resultTmp))
+	if ($rowText=mysqli_fetch_array($resultTmp))
 		$oFCKeditor->Value = $rowText["T_TEXT"]."";
 	else
 		$oFCKeditor->Value = "";

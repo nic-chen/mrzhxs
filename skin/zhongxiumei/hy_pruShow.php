@@ -17,7 +17,7 @@
 			//echo "select * from pru ".$sSql." limit ".(($current_page-1)*$nItemEachPage).", $nItemEachPage";
 			$index = 0;
 			$preUserID = "";
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 
 				
@@ -47,7 +47,7 @@
 			
 	$url="?p=search&T_CHILD=".$_GET["T_CHILD"]."&T_CLASS=".$_GET["T_CLASS"]."&order=".$_GET["order"]."&ID=".$_GET["ID"]."&CLASSS=".$_GET["CLASSS"]."&sex=".$_GET["sex"]."&page="; 
 	$result_currect = $SQL->Query("select count(*) as nTotal from pru where T_USER_ID='$customerID'");
-	if ($row=mysql_fetch_array($result_currect))
+	if ($row=mysqli_fetch_array($result_currect))
 		$nPruNum = $row["nTotal"];
 	else
 		$nPruNum = 0;

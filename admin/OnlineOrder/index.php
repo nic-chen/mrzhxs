@@ -46,7 +46,7 @@ form input{
   <?PHP
   $OnlineOrder = new OnlineOrder;
   $result = $OnlineOrder->GetOnlineOrderList();
-  while($row=mysql_fetch_array($result))
+  while($row=mysqli_fetch_array($result))
   {
   ?>
   <tr>

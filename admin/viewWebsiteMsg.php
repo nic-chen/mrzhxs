@@ -16,7 +16,7 @@ include("MessageTopBar.php");
 	$msg_id=$_GET["ID"];
 	$result = $SQL->Query("select * from customerleavemsg where T_INDEX='$msg_id' ");
 	
-	while(($row=mysql_fetch_array($result)))
+	while(($row=mysqli_fetch_array($result)))
 	{
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

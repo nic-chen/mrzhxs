@@ -31,7 +31,7 @@
 			$index = 0;
 			$Customer = new Customer;
 			$totalPru = 0;
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				$totalPru++;
 				$index=$index%5;
@@ -73,7 +73,7 @@
 			
 	$url="?p=product&classs=$class&page="; 
 	$result_currect = $SQL->Query("select count(*) as nTotal from pru, registercustomer ".$sSql);
-	if ($row=mysql_fetch_array($result_currect))
+	if ($row=mysqli_fetch_array($result_currect))
 		$nPruNum = $row["nTotal"];
 	else
 		$nPruNum = 0;

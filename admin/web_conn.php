@@ -24,8 +24,8 @@ body {
 	
 	$SQL=new SQL;
 	$result = $SQL->Query("select * from t_web_conn where T_URL='".GetCurrentWebHost()."'");
-	$nPruNum = mysql_numrows($result);
-	if ($row=mysql_fetch_array($result))
+	$nPruNum = mysqli_num_rows($result);
+	if ($row=mysqli_fetch_array($result))
 	{
 		$web_url=$row["T_URL"];
 		$web_subject=$row["T_WEB_NAME"];

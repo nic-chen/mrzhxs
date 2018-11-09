@@ -59,7 +59,7 @@ table.line{
 	  $bEnd=false;
       for ($i=0; $i<$nNewArrivalTotal; $i++)
 	  {
-	  	if (!$bEnd && $row=mysql_fetch_array($result))
+	  	if (!$bEnd && $row=mysqli_fetch_array($result))
 		{
 			$pruID=$row["T_ID"];
 			$pruOrder=$row["T_ORDER"];

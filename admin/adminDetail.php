@@ -31,7 +31,7 @@ body,td,th {
 	$admin_id=$_GET["ID"];
 	$result = $SQL->Query("select * from admin where T_ID='$admin_id'");
 	
-	while(($row=mysql_fetch_array($result)))
+	while(($row=mysqli_fetch_array($result)))
 	{
   ?>
   <form action="updateData.php?COM_ID=1013&ID=<?php echo $admin_id;?>" method="post">

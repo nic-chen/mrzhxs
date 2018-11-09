@@ -22,7 +22,7 @@ $subWebName = GetCurrentSubWebName();
 //$subWebName = "mm";
 $customer = new Customer;
 $result = $customer->GetCustomerByHeadURL($subWebName);
-if ($rowCustomer=mysql_fetch_array($result))
+if ($rowCustomer=mysqli_fetch_array($result))
 	$customerID = $rowCustomer["T_ID"];
 else
 	die("error, dont find the customer!!");
@@ -68,7 +68,7 @@ else
 			<li<?php if ($type=="search" && $_GET["order"]=="hot") echo " id='current'";?>><a href="?p=search&order=hot">精品推荐</a></li>
             <?php
             $result = $customer->GetCustomerModelList($rowCustomer["T_TYPE"]);
-			while($row=mysql_fetch_array($result))
+			while($row=mysqli_fetch_array($result))
 			{
 				if ($row["T_STATUS"]!=0)
 					continue;

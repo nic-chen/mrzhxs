@@ -8,8 +8,8 @@
 <body>
 <?php
 	include_once("../dbCfg.php");
-	$result = mysql_query("select * from t_web_conn ",$pingoDateBase);
-	$nPruNum = mysql_numrows($result);
+	$result = mysqli_query("select * from t_web_conn ",$pingoDateBase);
+	$nPruNum = mysqli_num_rows($result);
 	if ($nPruNum==0)
 	{
 		$web_url="";
@@ -17,7 +17,7 @@
 	}
 	else
 	{
-		$row=mysql_fetch_array($result);
+		$row=mysqli_fetch_array($result);
 		$web_url=$row["T_URL"];
 		$web_subject=$row["T_WEB_NAME"];
 	}
