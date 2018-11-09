@@ -1,0 +1,47 @@
+﻿<script type="text/javascript">
+function showthis(){
+	var str="";
+	if(document.OrderFrom.mail.value)
+	{
+	}
+	else
+	{
+		alert("请输入您的联系方式！");
+		return false;
+	}
+
+	if(document.OrderFrom.subject.value)
+		;
+	else
+	{
+		alert("请输入标题内容！");
+		return false;
+	}
+	
+	if(document.OrderFrom.msg.value)
+	{
+		str = "" + document.OrderFrom.msg.value;
+		if (str.length>1024)
+		{
+			alert("最大文本内容是1024字节。请删减部分！");
+			return false;
+		}
+	}
+	else
+	{
+		alert("请输入您要留言的留言内容！");
+		return false;
+	}
+	return true;
+}
+</script>
+<form name="OrderFrom" id="OrderFrom" action="updateData.php?COM_ID=0014" method="post" style="padding:0px; margin:0px;" onsubmit="return(showthis());">
+<ul class="leaveMsg">
+	<li id="title">留言</li>
+	<li><span class="name">联系方式：</span><input name="mail" type="text" />*</li>
+	<li><span class="name">标题：</span><input name="subject" type="text" />*</li>
+	<li><span class="name">内容：</span><textarea name="msg"></textarea>*</li>
+	<li><span class="name">&nbsp;</span><input name="submit" type="submit" id="submit" value="留言" />
+	</li>
+</ul>
+</form>

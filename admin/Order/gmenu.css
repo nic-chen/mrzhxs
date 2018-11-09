@@ -1,0 +1,135 @@
+td a.gmenu
+{
+	text-decoration: none;
+	background: white;
+	color: #669900;
+	display: block;
+	padding: 5px;
+	font-weight: bold;
+
+	width: 96%;
+	font-size: 12px;
+	border-top: 0px;
+	border-right: 0px;
+	border-left: 0px;
+	border-bottom: 5px;
+	border-color: #666666;
+	border-style: solid;
+	margin-right: 0px;
+}
+
+td a.gmenuSub
+{
+	background: white;
+	display: block;
+	padding: 2px;
+	font-size: 12px;
+}
+
+td a.gmenu:hover
+{
+	border-color: red;
+}
+
+
+div.submenu
+{
+	border: 1px solid #555555;	
+	margin: 5px;
+	margin-top: 5px;
+	color: #666666;
+	font-size: 12px;
+}
+
+.submenu a
+{
+	background: #cccccc;
+	display: block;
+	width: 150px;
+	padding: 2px;
+	
+	color: #666666;
+	display: block;
+	text-decoration: none;	
+	font-size: 12px;
+}
+
+.submenu a:hover
+{
+	text-decoration: underline;
+}
+
+div.level2menu
+{
+	margin-left: 230px;
+	border: 1px solid #555555;
+}
+
+.level2menu a
+{
+	width: 120px;
+	padding: 2px;
+	margin-left: 0px;
+	background: #fafafa;
+	text-decoration: none;
+	display: block;
+
+	color: #666666;
+	font-family: arial;
+	font-size: small;
+}
+
+.level2menu a:hover
+{
+
+	text-decoration: underline;
+}
+
+.level2menu a:active
+{
+	background: #cccccc;
+
+	color: #666666;
+}
+
+.level2menu a:visited
+{
+	background: #cccccc;
+
+	color: #666666;
+}
+
+
+table.gmenu
+{
+	background: white;
+	color: #ffffff;
+	position:relative;
+	left: 0px;
+	top: 0px;
+	font-family: arial;
+	font-weight: bold;
+	border: 0px solid black;
+}
+
+td.gmenu
+{
+	color: #666666;
+	border: 0px;
+	padding: 5px;
+}
+
+td.gmenu:hover
+{
+	text-decoration: underline;
+}
+
+#menu,#description
+{
+	float: left;
+}
+
+#description
+{
+	margin-left: 50px;
+}

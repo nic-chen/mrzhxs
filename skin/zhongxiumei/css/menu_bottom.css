@@ -1,0 +1,12 @@
+/*global button*/
+button {cursor:pointer;}
+
+	/* turn page */
+	.page{ clear:both; margin:5px 0px auto 20px; } 
+	.page li,.page li.long{color:#666666; font-weight:bold;width:30px;border:1px solid #51727B; float: left;text-align:center; height:20px;line-height:20px;margin:1px;}
+	.page li a,.page li.long a{ display:block;color: #666666;font-weight:normal; text-decoration:none; text-align:center; height:20px;line-height:20px; width:100%;}
+	.page li.long,.page li.long a{ width:50px; }
+	.page li a:hover,.page li.long a:hover{background:#F0F4F7;}
+
+
+

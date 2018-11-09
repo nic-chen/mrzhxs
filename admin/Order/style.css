@@ -1,0 +1,106 @@
+/*全局设置*/
+button {cursor:pointer;}
+
+	/* 翻页效果 */
+	.page{ clear:both; margin:5px 0;} 
+	.page li,.page li.long{color: #6A9635; font-weight:bold;width:30px;border:1px solid #C2DC71; float: left;text-align:center; height:20px;line-height:20px;margin:1px;}
+	.page li a,.page li.long a{ display:block;color: #FF9966;font-weight:normal; text-decoration:none; text-align:center; height:20px;line-height:20px; width:100%;}
+	.page li.long,.page li.long a{ width:50px; }
+	.page li a:hover,.page li.long a:hover{background:#C2DC71;}
+	.s_other {background:#F9F9F9; border:1px #f0f0f2 solid; clear:both; padding:4px 8px; float:left; width:98%; margin:15px 0 0 0; position:relative;}
+
+	.s_other a{text-decoration:underline}
+	.s_other h3{width:70px; position:absolute;left:10px;top:5px;font-weight:normal;float:left; font-size:14px; color:#000;}
+	.s_other ul{margin-left:90px;margin-top:5px}
+	.s_other li {font-size:14px;float:left; display:block; width:23%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0px 10px 3px 0px;height:22px;line-height:22px}
+	.s_other li a,h4 a,h4 strong{font-size:14px;}
+	
+	h4{ clear:both;font-size:14px; float:left; width:85%;margin:15px 0;}
+	.ftse{ clear:both; margin-top:15px;}
+	.fttxt{ background-color:#fff;width:90%;border:1px solid #DEE1E6; padding:3px 5px; float:left; margin:15px 0px;}
+	.fttxt ul{ float:left; padding:3px 10px ; white-space:nowrap; color:#666;}
+	.fttxt ul a,.box22 a{color:#666;text-decoration:none;}
+	.fttxt li a{ color:#666; text-decoration:none;}
+	.m_info{ text-align:center; clear:both; margin:15px 0 0 0;}
+	h5,h5 a{ font-size:14px; margin-bottom:5px}
+	h6{ color:#6A9635; font-size:14px; background:#F8F8F8; border-top:1px solid #ededed; height:22px; line-height:22px; padding:5px 8px;}
+	h6 span{ float:right;}
+	h6 a{ font-size:12px;}
+	.btl h6{ font-size:13px; padding-bottom:5px; border:none; background:none;}
+	.abtl h6{ font-size:13px; padding-bottom:5px; border:none; background:none;}
+	.hj,.bbs,.mph{ clear:both; margin:15px 0; }
+	.hj ul,.bbs ul{ padding:2px 0 0 10px;}
+	.bbs li{ width:202px;}
+	.hj li,.bbs li{ clear:both; padding:1px 0; background:url(../img/iocn.gif) no-repeat -150px -90px; padding-left:10px;}
+	.bbs li.at{ float:right;color:#FF9966; text-decoration:underline; background:none; text-align:right;}
+	.hj li strong,.bbs li strong{ color:#FF0000; text-decoration:underline;}
+	.mph li{ color:#666;clear:both; padding:1px 0;}
+	.mph li span{ float:right; text-align:left; width:50px;}
+	.mph li em{ font-weight:bold; width:20px; display:block; float:left;color:#666; text-align:left;}
+	.mph ul{ padding:2px 0 0 5px; }
+	.daph{ clear:both; border:solid #ededed; border-width:1px 0 ; padding:8px 0; float:left;}
+	.daph li{ float:left; padding:2px 5px; white-space:nowrap;}
+	.format_menu{width:320px;padding:5px 0;line-height:24px;text-align:left;overflow:hidden;position:absolute;background:#f5f5f5;border:1px solid #ccc;border-top:none; margin:-2px 0 0 -120px;}
+	* html .format_menu{margin:12px 0 0 -120px;}
+	*+html .format_menu{ margin:12px 0 0 -120px;}
+	
+	.format_menu li{float:left;width:40px;margin-left:10px; color:#6A9635;}
+	.if_box{ clear:both;  font-size:14px; color:#666; padding-top:10px;}
+	.if_box a{ font-size:14px;}
+
+	#sb {
+	HEIGHT: 2em
+	}
+/*- Menu Tabs 5--------------------------- */
+
+    #tabs5 {
+      float:left;
+      width:100%;
+      font-size:93%;
+      line-height:normal;
+
+      }
+    #tabs5 ul {
+          margin:0;
+          padding:10px 10px 0 50px;
+          list-style:none;
+      }
+    #tabs5 li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+    #tabs5 a {
+      float:left;
+      background:url("images/tableft5.gif") no-repeat left top;
+      margin:0;
+      padding:0 0 0 4px;
+      text-decoration:none;
+      }
+    #tabs5 a span {
+      float:left;
+      display:block;
+      background:url("images/tabright5.gif") no-repeat right top;
+      padding:5px 15px 4px 6px;
+      color:#FFF;
+      }
+
+    /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    #tabs5 a span {float:none;}
+    /* End IE5-Mac hack */
+    #tabs5 a:hover span {
+      color:#000;
+      }
+    #tabs5 a:hover {
+      background-position:0% -42px;
+      }
+    #tabs5 a:hover span {
+      background-position:100% -42px;
+      }
+
+      #tabs5 #current a {
+              background-position:0% -42px;
+      }
+      #tabs5 #current a span {
+              background-position:100% -42px;
+      }
