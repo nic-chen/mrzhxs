@@ -6,9 +6,10 @@ class SQL
 {
 	function Query($sSql)
 	{
+		global $allDateBase;
 		include(APPROOT."dbCfg.php");
 		//echo $sSql;
-		return mysqli_query($sSql, $allDateBase);;
+		return mysqli_query($allDateBase, $sSql);
 	}
 }
 ?>
