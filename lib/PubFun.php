@@ -444,7 +444,7 @@ function GetItemPathInfo($pru_id, $pru_version=NULL)
 	{
 		 if ($pru_version==1)
 		 {
-			$strTemppp=Split("-", $pru_id);
+			$strTemppp=explode("-", $pru_id);
 			$itemPath=$itemPath.trim($strTemppp[0])."/".trim($strTemppp[1])."/";
 		 }
 		 else 
@@ -459,7 +459,7 @@ function GetItemPathInfo($pru_id, $pru_version=NULL)
 		{
 			if ($row["Version"]==1)
 			{
-				$strTemppp=Split("-", $pru_id);
+				$strTemppp=explode("-", $pru_id);
 				$itemPath=$itemPath.trim($strTemppp[0])."/".trim($strTemppp[1])."/";
 			}
 			else 

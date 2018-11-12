@@ -29,8 +29,13 @@
 				<?php
 				}
 			?>
+			
+			<?php if(isset($_GET['johz'])){
+				var_dump($row);
+			} ?>
+
 				<ul class="index_pru">
-					<li id="picture">&nbsp;<a href="?p=ItemDetail&T_ID=<?php echo $row["T_ID"];?>"><img src="<?php echo GetItemPathInfo($row["T_ID"], $row["Version"])."head.jpg";?>"/></a></li>
+					<li id="picture">&nbsp;<a href="?p=ItemDetail&T_ID=<?php echo $row["T_ID"];?>"><img src="<?php echo GetItemPathInfo($row['T_ID'], $row['Version']).'head.jpg';?>"/></a></li>
 					<li><?php echo SIZE.FENGHAO; if (empty($row["T_SIZE"])) echo "询问"; else echo $row["T_SIZE"];?></li>
 				  <li><?php echo PRICE.FENGHAO; if (empty($row["T_PRICE"])) echo "询问"; else echo $row["T_PRICE"].MONEY_DANWEI;?></li>
 				</ul>
