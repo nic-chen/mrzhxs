@@ -9,7 +9,8 @@
 include("dbCfg.php");
 $pru_id = $_GET["T_ID"];
 $sSql = "select * from pru where T_ID='$pru_id'";
-$result_currect = mysqli_query($sSql,$allDateBase);
+
+$result_currect = mysqli_query($allDateBase, $sSql);
 $row=mysqli_fetch_array($result_currect);
 
 $pru_brand=$row["T_CHILD"];
@@ -42,7 +43,7 @@ $pru_size_danwei=$row["T_SIZE_DANWEI"];
 
 /*T_HOT+1*/
 include("dbCfg.php");
-mysqli_query("update pru set T_HOT=T_HOT+1 where T_ID='".$_GET["T_ID"]."'",$allDateBase);
+mysqli_query($allDateBase, "update pru set T_HOT=T_HOT+1 where T_ID='".$_GET["T_ID"]."'");
 
 if ( $row["T_STYLE_MEN"]==2 )
 	$pru_style=" For women";
@@ -225,7 +226,7 @@ else
 		/*customer's leaving message*/
 		include("dbCfg.php");
 		$sSql = "select * from customerleavemsg where T_PRU_ID='".$_GET["T_ID"]."' and T_URL='".GetCurrentWebHost()."' and T_ROLE=1 order by T_TIME ASC ";
-		$result_all_message = mysqli_query($sSql,$allDateBase);
+		$result_all_message = mysqli_query($allDateBase, $sSql);
 		$nMessageTotal = mysqli_num_rows($result_all_message);
 		?>
 <div id="TabbedPanels4" class="TabbedPanels">
@@ -276,7 +277,7 @@ else
 						continue;
 					include("dbCfg.php");
 					$sSql = "select * from customerleavemsg where T_INDEX='".$idListRepliedMsg[$i]."' and  T_URL='".GetCurrentWebHost()."'";
-					$result_currect = mysqli_query($sSql,$allDateBase);
+					$result_currect = mysqli_query($allDateBase, $sSql);
 					if ($row=mysqli_fetch_array($result_currect))
 					{
 					?>

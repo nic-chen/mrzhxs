@@ -483,7 +483,7 @@ function ClassList($classs)
 	$sSql=$sSql." group by T_CHILD";
 
 	include("dbCfg.php");
-	$result_currect = mysqli_query($sSql,$allDateBase);
+	$result_currect = mysqli_query($allDateBase, $sSql);
 	if (mysqli_num_rows($result_currect)!=0)
 	{
 ?>
@@ -572,7 +572,7 @@ function ShowOrerList()
 				include("dbCfg.php");
 				$sSql="select * from pru where T_ID='".$strIDItem[0]."'";
 				//echo $sSql;
-				$result = mysqli_query($sSql,$allDateBase);
+				$result = mysqli_query($allDateBase, $sSql);
 				$rstTemp=mysqli_fetch_array($result);
 				if ($rstTemp["Version"]==1)
 				{
