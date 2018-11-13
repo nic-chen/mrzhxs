@@ -161,7 +161,7 @@ body,td,th {
     <td align="center" valign="middle"><a href="../detail_pic.php?ID=<?php echo $row["T_ID"]; ?>" target="_blank"><img src="http://<?PHP  echo GetCurrentWebHost();?>/images/pru/<?php
 			  if ($row["Version"]==1)
 			  {
-				$strTemppp=Split("-", $row["T_ID"]);
+				$strTemppp=explode("-", $row["T_ID"]);
 				echo trim($strTemppp[0])."/".trim($strTemppp[1]);
 			  }
 			  else 

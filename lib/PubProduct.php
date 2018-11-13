@@ -191,7 +191,7 @@ class Product
 	*/
 	function MakeDefaultItemPath($id)
 	{
-		$idList = split("-", $id);
+		$idList = explode("-", $id);
 		if (!file_exists(APPROOT."images/pru/".$idList[0]))
 			mkdir(APPROOT."images/pru/".$idList[0]);
 		if (!file_exists(APPROOT."images/pru/".$idList[0]."/".$idList[1]))

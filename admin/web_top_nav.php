@@ -63,7 +63,7 @@ function ShowText(nID)
           <?php
 	  include("../dbCfg.php");
 	  $nNewArrivalTotal=20;
-	  $result = mysqli_query("select * from t_top_nav where T_URL='".GetCurrentWebHost()."' order by T_INDEX ASC, T_NAME",$allDateBase);
+	  $result = mysqli_query($allDateBase, "select * from t_top_nav where T_URL='".GetCurrentWebHost()."' order by T_INDEX ASC, T_NAME");
 	  $nPos=-1;
       while($row=mysqli_fetch_array($result))
 	  {
