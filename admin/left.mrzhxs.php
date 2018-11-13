@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 include_once('settings.php');
 include_once(LIBPATH."lib.php");
 
@@ -83,7 +84,7 @@ ul {
 <li><a href="OnlineOrder/index.php" target="right">在线订单</a></li>
 <?php
 $adminName=$adminPwd="";
-$cur_admin->GetAdminSignInfo(&$adminName, &$adminPwd);
+$cur_admin->GetAdminSignInfo($adminName, $adminPwd);
 if ($adminName=="root")
 {
 ?>
